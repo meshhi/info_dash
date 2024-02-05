@@ -37,6 +37,7 @@ const TextContent = styled(motion.div)`
     min-width: 647px;
     position: relative;
     z-index: 3;
+    color: inherit;
 `
 
 const Header = styled.h1`
@@ -101,7 +102,7 @@ export const Greetings: FC<PropsWithChildren> = () => {
 
                 <Button
                     onClick={() => {
-                        navigate("/2");
+                        navigate("/slides/2");
                     }}
                 >Далее</Button>
 

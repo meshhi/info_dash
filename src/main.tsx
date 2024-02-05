@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, HashRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Greetings } from './components/Slides/Greetings.tsx'
 import { WhatyouCan } from './components/Slides/WhatYouCan.tsx'
 import { BaseContainer } from './components/BaseContainer.tsx'
@@ -12,10 +12,12 @@ const RoutesWithAnimation = () => {
 
   return (
     <Routes location={location} key={location.key}>
-      <Route path="/" element={<BaseContainer />}>
-        <Route path="/" element={<Greetings />} />
-        <Route path="/2" element={<WhatyouCan />} />
+      <Route path="/" element={<Greetings />}>
       </Route>
+      <Route path="/slides" element={<BaseContainer />}>
+        <Route path="/slides/2" element={<WhatyouCan />} />
+      </Route>
+      
     </Routes>
   );
 }
@@ -23,10 +25,10 @@ const RoutesWithAnimation = () => {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <AnimatePresence>
         <RoutesWithAnimation></RoutesWithAnimation>
       </AnimatePresence>
-  </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
 )
