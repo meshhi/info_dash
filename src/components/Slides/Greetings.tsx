@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import greetings_bg from '/src/assets/greetings_bg.png'
 import greetings_tableau from '/src/assets/greetings_tableau.png'
-import { Button } from "../UI/Buttons/Button";
+import { RedButton } from "../UI/Buttons/Buttons";
 import greetings_tableau_svg from '/src/assets/greetings_tableau.svg'
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -26,11 +26,10 @@ const StyledGreetings = styled.section`
     border-radius: 15px;
 `
 
-const Tableau = styled.img`
+const Tableau = styled(motion.img)`
     position: absolute;
     right: 0;
     z-index: 1;
-
 `
 
 const TextContent = styled(motion.div)`
@@ -75,7 +74,7 @@ export const Greetings: FC<PropsWithChildren> = () => {
             <TextContent
                 variants={{
                     initial: {
-                        opacity: 0,
+                        opacity: 0.5,
                         y: "100px",
                     },
                     final: {
@@ -100,11 +99,11 @@ export const Greetings: FC<PropsWithChildren> = () => {
                     За несколько шагов мы расскажем <br></br> вам о возможностях системы <br></br>и ключевых ресурсах.
                 </Paragraph>
 
-                <Button
+                <RedButton
                     onClick={() => {
                         navigate("/slides/2");
                     }}
-                >Далее</Button>
+                >Далее</RedButton>
 
                 <LittleParagraph>
                     Навигационный дашборд появляется только 1 раз,<br></br> но всегда доступен в разделе <BoldLittleParagraph>«Информационные панели»</BoldLittleParagraph>
@@ -113,7 +112,23 @@ export const Greetings: FC<PropsWithChildren> = () => {
             <Tableau src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                 ? greetings_tableau_svg
                 : "greetings_tableau.svg"
-            }>
+            }
+            variants={{
+                initial: {
+                    // opacity: 0.5,
+                    y: "100px",
+                },
+                final: {
+                    opacity: 1,
+                    y: "0px",
+                    transition: {
+                        duration: 0.5,
+                    },
+                }
+            }}
+            initial="initial"
+            animate="final"
+            >
 
             </Tableau>
         </StyledGreetings>
