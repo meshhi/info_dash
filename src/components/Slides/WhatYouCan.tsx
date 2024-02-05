@@ -60,7 +60,9 @@ const RightContent = styled(motion.div)`
     border-radius: 15px;
     background-color: #EDF3FA;
     padding: 2%;
-    background-image: url(${can_right});
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? can_right
+    : "can_right.png"});
     background-repeat: no-repeat;
     background-size: cover;
 `
@@ -83,8 +85,10 @@ const GridItem = styled.div`
     gap: 20px;
 `
 
-const GridImageBg = styled.div<{ $bg: string }>`
-    background-image: url(${bg});
+const GridImageBg = styled.div`
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? bg
+    : "bg.png"});
     min-width: 48%;
     height: 100%;
     background-color: #E3EAEF;
@@ -112,23 +116,33 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
 
     const gridContent = [
         {
-            src: first,
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? first
+            : "1.png",
             text: "Подключить свои источники. Любые: файлы, базы, веб-сервисы."
         },
         {
-            src: second,
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? second
+            : "2.png",
             text: "Трансформировать данные и даже применять к ним готовые ML-блоки."
         },
         {
-            src: third,
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? third
+            : "3.png",
             text: "Визуализировать  и анализировать данные."
         },
         {
-            src: fourth,
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? fourth
+            : "4.png",
             text: "Выгружать данные  в файлы, изображения или pdf."
         },
         {
-            src: fifth,
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? fifth
+            : "5.png",
             text: "Настроить расписание, по которому ваши данные будут обновляться."
         },
     ]

@@ -27,7 +27,9 @@ const LeftContent = styled(motion.div)`
     gap: 80px;
     align-items: center;
     overflow: hidden;
-    background-image: url(${can_right});
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? can_right
+    : "can_right.png"});
     background-repeat: no-repeat;
     background-size: cover;
     // background-position: 100%;
@@ -92,7 +94,9 @@ const RightTopContent = styled.div`
     background-color: #EDF3FA;
     padding: 2%;
     flex: 1;
-    background-image: url(${top});
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? top
+    : "top.png"});
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
@@ -107,7 +111,9 @@ const RightBottomContent = styled.div`
     background-color: #EDF3FA;
     padding: 2%;
     flex: 1;
-    background-image: url(${bottom});
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? bottom
+    : "bottom.png"});
     background-repeat: no-repeat;
     color: white;
     font-size: 30px;
