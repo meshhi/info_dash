@@ -5,7 +5,7 @@ import can_left from '/src/assets/can_left.svg';
 import can_right from '/src/assets/can_right.png';
 import { motion } from "framer-motion";
 
-import bg from '/src/assets/what_can_do/bg.png';
+import bg_what_can from '/src/assets/what_can_do/bg_what_can.png';
 import first from '/src/assets/what_can_do/1.png';
 import second from '/src/assets/what_can_do/2.png';
 import third from '/src/assets/what_can_do/3.png';
@@ -78,7 +78,9 @@ const RightGrid = styled.div`
 const GridItem = styled.div`
     background-color: #FFFFFF;
     width: 100%;
-    height: 200px;
+    min-height: 170px;
+    max-height: 200px;
+    height: 100%;
     border-radius: 15px;
     padding: 6px;
     display: flex;
@@ -87,8 +89,8 @@ const GridItem = styled.div`
 
 const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? bg
-    : "bg.png"});
+    ? bg_what_can
+    : "bg_what_can.png"});
     min-width: 48%;
     height: 100%;
     background-color: #E3EAEF;
@@ -108,7 +110,10 @@ const GridItemText = styled.p`
     color: black;
     font-size: 18px;
     font-weight: 300;
-    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 `
 
 export const WhatYouCan: FC<PropsWithChildren> = () => {
@@ -131,13 +136,13 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? third
             : "3.png",
-            text: "Визуализировать  и анализировать данные."
+            text: "Визуализировать и анализировать данные."
         },
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? fourth
             : "4.png",
-            text: "Выгружать данные  в файлы, изображения или pdf."
+            text: "Выгружать данные в файлы, изображения или pdf."
         },
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'

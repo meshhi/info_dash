@@ -59,11 +59,17 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
                     }
                 }}
                 >Назад</GreenButton>
-                <RedButton
-                onClick={() => {
-                    navigate(`/slides/${page + 1}`);
-                }}
-                >Далее</RedButton>
+                {
+                    page == maxPage
+                    ? false
+                    :                 
+                    <RedButton
+                        onClick={() => {
+                            navigate(`/slides/${page + 1}`);
+                        }}
+                    >Далее</RedButton>
+                }
+
             </Row>
         </StyledBaseContainer>)
 }

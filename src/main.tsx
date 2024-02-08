@@ -8,6 +8,12 @@ import { BaseContainer } from './components/Slides/BaseContainer.tsx'
 import { AnimatePresence } from 'framer-motion'
 import { Restrictions } from './components/Slides/Restrictions.tsx'
 import { BrieflyAbout } from './components/Slides/BrieflyAbout.tsx'
+import { AboutSources } from './components/Slides/AboutSources.tsx'
+import { AboutModels } from './components/Slides/AboutModels.tsx'
+import { AboutWidgets } from './components/Slides/AboutWidgets.tsx'
+import { BackToDemo } from './components/Slides/BackToDemo.tsx'
+import { Questions } from './components/Slides/Questions.tsx'
+import { AfterDemo } from './components/Slides/AfterDemo.tsx'
 
 const RoutesWithAnimation = () => {
   const location = useLocation();
@@ -20,8 +26,13 @@ const RoutesWithAnimation = () => {
         <Route path="/slides/2" element={<WhatYouCan />} />
         <Route path="/slides/3" element={<Restrictions />} />
         <Route path="/slides/4" element={<BrieflyAbout />} />
+        <Route path="/slides/5" element={<AboutSources />} />
+        <Route path="/slides/6" element={<AboutModels />} />
+        <Route path="/slides/7" element={<AboutWidgets />} />
+        <Route path="/slides/8" element={<BackToDemo />} />
+        <Route path="/slides/9" element={<Questions />} />
+        <Route path="/slides/10" element={<AfterDemo />} />
       </Route>
-      
     </Routes>
   );
 }

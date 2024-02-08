@@ -96,7 +96,7 @@ const RightTopContent = styled.div`
     flex: 1;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? top
-    : "top.png"});
+    : "top.svg"});
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
@@ -113,7 +113,7 @@ const RightBottomContent = styled.div`
     flex: 1;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bottom
-    : "bottom.png"});
+    : "bottom.svg"});
     background-repeat: no-repeat;
     color: white;
     font-size: 30px;
