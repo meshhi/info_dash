@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import bg_briefly from "/src/assets/briefly_about/bg_briefly.png"
 import aw_briefly from "/src/assets/briefly_about/aw_briefly.png"
 import arrow_top_briefly from "/src/assets/briefly_about/arrow_top_briefly.svg"
+import arrow_top_center_briefly from "/src/assets/briefly_about/arrow_top_center_briefly.svg"
+import arrow_bottom_center_briefly from "/src/assets/briefly_about/arrow_bottom_center_briefly.svg"
+import arrow_bottom_briefly from "/src/assets/briefly_about/arrow_bottom_briefly.svg"
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -12,11 +15,19 @@ const StyledContainer = styled(motion.section)`
     border-radius: 15px;
     background-color: #EDF3FA;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? bg_briefly
-    : "bg_briefly.png"});
+        ? bg_briefly
+        : "bg_briefly.png"});
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+`
+
+const ContenContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    height: 100%;
+    margin: 0 auto;
 `
 
 const LeftContent = styled.article`
@@ -67,7 +78,7 @@ const AWImage = styled.img`
 `
 
 const Arrow = styled.div`
-    --_width: 161px;
+    --_width: 561px;
     width: var(--_width);
     height: 250px;
     position: absolute;
@@ -75,56 +86,115 @@ const Arrow = styled.div`
     bottom: calc(var(--_height) / 2);
     z-index: 5;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? arrow_top_briefly
-    : "arrow_top_briefly.svg"});
+        ? arrow_top_briefly
+        : "arrow_top_briefly.svg"});
     background-size: contain;
     background-repeat: no-repeat;
 }
 `
 
-export const BrieflyAbout : FC<PropsWithChildren>= () => {
-    return(
-        <StyledContainer
-        variants={{
-            initial: {
-                opacity: 0,
-                y: "-100px",
-            },
-            final: {
-                opacity: 1,
-                y: "0px",
-                transition: {
-                    duration: 0.5,
-                },
-            }
-        }}
-        initial="initial"
-        animate="final"
-        >
-            <LeftContent>
-                <Header>
-                    Кратко про разделы<br></br> системы
-                </Header>
-                <Text>
-                Не удивляйтесь, что у нас всего 4 основных<br></br> пункта в меню – их хватит, чтобы сделать<br></br> потрясающую отчётность.
-                </Text>
-                <Text>
-                А ещё можно в тёмную тему переключиться 😉 <br></br>Дашборды тоже переключатся – многим это<br></br> нравится.
-                </Text>
-            </LeftContent>
-            <CardsContent>
-                <LinkCard>Источники данных
-                    <Arrow></Arrow>
-                </LinkCard>
-                <LinkCard>Модели</LinkCard>
-                <LinkCard>Виджеты</LinkCard>
-                <LinkCard>Информационные панели</LinkCard>
-            </CardsContent>
+const Icon = styled.div<{ $srcImg?: string; $width?: number; $height?: number; $margin?: string; $backgroundColor?: string; $right?: string;}>`
+    width: ${props => props.$width ? props.$width + "px" : "50px"};
+    height: ${props => props.$height ? props.$height + "px" : "50px"};
+    mask-image: url(${props => props.$srcImg});
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    background-color: ${props => props.$backgroundColor ? `${props.$backgroundColor}` : "var(--smooth-grey)"};
+    cursor: pointer;
+    ${props => props.$margin ? `margin: ${props.$margin};` : ""}
+    position: absolute;
+    bottom: 30px;
+    right: ${props => props.$right ? props.$right : "-156px"};
+    z-index: 1000;
+`
 
-            <AWImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+const LeftColumn = styled.div``
+const RightColumn = styled.div``
+
+export const BrieflyAbout: FC<PropsWithChildren> = () => {
+    return (
+        <StyledContainer
+            variants={{
+                initial: {
+                    opacity: 0,
+                    y: "-100px",
+                },
+                final: {
+                    opacity: 1,
+                    y: "0px",
+                    transition: {
+                        duration: 0.5,
+                    },
+                }
+            }}
+            initial="initial"
+            animate="final"
+        >
+            <ContenContainer>
+
+                <LeftContent>
+                    <Header>
+                        Кратко про разделы<br></br> системы
+                    </Header>
+                    <Text>
+                        Не удивляйтесь, что у нас всего 4 основных<br></br> пункта в меню – их хватит, чтобы сделать<br></br> потрясающую отчётность.
+                    </Text>
+                    <Text>
+                        А ещё можно в тёмную тему переключиться 😉 <br></br>Дашборды тоже переключатся – многим это<br></br> нравится.
+                    </Text>
+                </LeftContent>
+                <CardsContent>
+                    <LinkCard>Источники данных
+                        <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? arrow_top_briefly
+                            : "arrow_top_briefly.png"}
+                            $width={157}
+                            $height={322}
+                            $backgroundColor="#789BB9"
+                            $right={"-156px"}
+                            ></Icon>
+                    </LinkCard>
+                    <LinkCard>Модели
+                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? arrow_top_center_briefly
+                            : "arrow_top_center_briefly.png"}
+                            $width={157}
+                            $height={352}
+                            $backgroundColor="#789BB9"
+                            $right={"-154px"}
+                            ></Icon>
+                    </LinkCard>
+                    <LinkCard>Виджеты
+                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? arrow_bottom_center_briefly
+                            : "arrow_bottom_center_briefly.png"}
+                            $width={177}
+                            $height={392}
+                            $backgroundColor="#789BB9"
+                            $right={"-164px"}
+                            ></Icon>
+                    </LinkCard>
+                    <LinkCard>Информационные панели
+                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? arrow_bottom_briefly
+                            : "arrow_bottom_briefly.png"}
+                            $width={187}
+                            $height={442}
+                            $backgroundColor="#789BB9"
+                            $right={"-172px"}
+                            ></Icon>
+                    </LinkCard>
+                </CardsContent>
+
+
+                <AWImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                     ? aw_briefly
                     : "aw_briefly.png"
-            }></AWImage>
+                }></AWImage>
+            </ContenContainer>
+
+
         </StyledContainer>
     )
 }
