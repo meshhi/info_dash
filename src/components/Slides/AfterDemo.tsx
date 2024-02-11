@@ -19,6 +19,11 @@ const StyledContainer = styled(motion.section)`
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
+
+    @media (max-height: 980px) {
+        padding: 50px 50px;
+    }
 `
 
 const Header = styled.h1`
@@ -30,7 +35,25 @@ const Header = styled.h1`
 const TextContent = styled.p`
     font-size: 20px;
     font-weight: 300;
-    margin-bottom: 55px;
+    // margin-bottom: 55px;
+
+    @media (max-width: 1200px) {
+        font-size: 16px;
+    }
+`
+
+const AdaptiveText = styled.p`
+    margin-bottom: 16px;
+    @media (max-width: 1400px) and (max-height: 900px) {
+        display: none;
+    }
+`
+
+const AdaptiveTextBottom = styled.p`
+    margin-top: 16px;
+    @media (max-width: 1400px) and (max-height: 900px) {
+        display: none;
+    }
 `
 
 const Cards = styled.div`
@@ -39,29 +62,41 @@ const Cards = styled.div`
     grid-template-rows: 1fr 1fr;
     gap: 50px;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
+    @media (max-height: 980px) {
         gap: 30px;
     }
 `
 
 const Card = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 36px;
-    min-width: 824px;
-    max-width: 824px;
     border: 2px solid #48D6E5;
     border-radius: 15px;
     background-color: white;
-    padding: 8px;
     overflow: hidden;
+    padding: 8px;
+    gap: 36px;
+    height: auto;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
-        min-width: 624px;
-        max-width: 624px;
-        height: 220px;
+    @media (max-height: 945px) {
+        min-height: 300px;
+    }
+
+    @media (max-height: 890px) {
+        min-height: 250px;
+    }
+
+    @media (max-height: 755px) {
+        min-height: 200px;
+        max-height: 200px;
+    }
+
+    @media (min-width: 1600px) {
+        min-height: 290px;
+        max-height: 290px;
     }
 `
 
@@ -101,14 +136,11 @@ const CardText = styled.p`
     }
 `
 
-const Comment = styled.div`
-
-`
-
 const CardButton = styled(GreenButton)`
     color: white;
     min-width: 330px;
     min-height: 53px;
+    margin-bottom: 8px;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         min-width: 250px;
@@ -116,24 +148,20 @@ const CardButton = styled(GreenButton)`
     }
 `
 
-const ContenContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
+const BoldLink = styled.a`
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
 `
 
 const cardsContent = [
     {
         text: () => {
             return(
-                <p>Если вы просто хотели посмотреть на нашу BI – спасибо, что посмотрели❤️ 
-                <br></br>
-                <br></br>
-                Будем рады, если вы оставите обратную связь в этом небольшом опросе: </p>
+                <TextContent>
+                    <AdaptiveText>Если вы просто хотели посмотреть на нашу BI – спасибо, что посмотрели❤️ </AdaptiveText>
+                    Будем рады, если вы оставите обратную связь в этом небольшом опросе: 
+                </TextContent>
             )
         },
         btn: () => <CardButton>Перейти в опрос</CardButton>,
@@ -142,10 +170,10 @@ const cardsContent = [
     {
         text: () => {
             return(
-                <p>Если вы выбираете систему для внедрения – давайте вместе обсудим вашу задачу. Возможно, у вас остались какие-то вопросы или сомнения. 
-                <br></br>
-                <br></br>
-                Просто запишитесь на консультацию здесь –  </p>
+                <TextContent>
+                    Если вы выбираете систему для внедрения – давайте вместе обсудим вашу задачу. Возможно, у вас остались какие-то вопросы или сомнения. 
+                    <AdaptiveTextBottom>Просто запишитесь на консультацию здесь – </AdaptiveTextBottom>
+                </TextContent>
             )
         },
         btn: () => <CardButton>Записаться на консультацию</CardButton>,
@@ -154,7 +182,9 @@ const cardsContent = [
     {
         text: () => {
             return(
-                <p>Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – t.me/AnalyticWorkspace </p>
+                <TextContent>
+                    Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – <BoldLink href="https://t.me/awcommunity">t.me/AnalyticWorkspace</BoldLink> 
+                </TextContent>
             )
         },
         btn: () => <CardButton>Перейти</CardButton>,
@@ -163,8 +193,9 @@ const cardsContent = [
     {
         text: () => {
             return(
-                <p>Ближе к окончанию срока действия демо-версии мы напомним вам на почту об опросе и возможности консультации 😉
-                </p>
+                <TextContent>
+                    Ближе к окончанию срока действия демо-версии мы напомним вам на почту об опросе и возможности консультации 😉
+                </TextContent>
             )
         },
         btn: false,
@@ -192,24 +223,22 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            {/* <ContenContainer> */}
-                <Header>Что делать после ознакомления с демо-версией</Header>
-                <Cards>
-                    {
-                        cardsContent.map(card => <Card>
-                            <CardContent>
-                                <CardText>
-                                    {card.text()}
-                                </CardText>
-                                {card.btn ? card.btn() : false}
-                            </CardContent>
-                                <CardImg>
+            <Header>Что делать после ознакомления с демо-версией</Header>
+            <Cards>
+                {
+                    cardsContent.map(card => <Card>
+                        <CardContent>
+                            <CardText>
+                                {card.text()}
+                            </CardText>
+                            {card.btn ? card.btn() : false}
+                        </CardContent>
+                            <CardImg>
 
-                                </CardImg>
-                        </Card>)
-                    }
-                </Cards>
-            {/* </ContenContainer> */}
-            </StyledContainer>
+                            </CardImg>
+                    </Card>)
+                }
+            </Cards>
+        </StyledContainer>
         )
     }
