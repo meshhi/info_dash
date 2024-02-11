@@ -23,6 +23,10 @@ const StyledContainer = styled(motion.section)`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        padding: 50px 50px;
+    }
 `
 
 const ContentContainer = styled.div`
@@ -39,27 +43,43 @@ const Header = styled.h1`
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 49px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        // margin-bottom: 21px;
+    }
 `
 
 const TextContent = styled.p`
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 55px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        // margin-bottom: 21px;
+    }
 `
 
 const Cards = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 40px;
 `
 
 const Card = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 36px;
     max-width: 478px;
+    overflow: scroll;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        // max-width: 178px;
+        // max-height: 144px;
+    }
 `
 
 const CardImg = styled.img`
@@ -70,11 +90,22 @@ const CardImg = styled.img`
     border: 2px solid #48D6E5;
     border-radius: 15px;
     background-color: #EDF3FA;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 350px;
+        height: 244px;
+    }
 `
 const CardText = styled.p`
     font-size: 20px;
     font-weight: 300;
     text-align: start;
+`
+
+const BoldLink = styled.a`
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
 `
 
 const cards = [
@@ -97,7 +128,7 @@ const cards = [
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? back_demo_3
         : "back_demo_3.png",
-        text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: КУДА"</p>
+        text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>"</p>
     }
 ]
 

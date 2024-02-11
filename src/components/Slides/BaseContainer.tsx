@@ -48,17 +48,18 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
     const [size, setSize] = useState<string>();
     useEffect(() => {
         const timer = setInterval(() => {
-            setSize("width: " + window.innerWidth + " height: " + window.innerHeight);
+            let sizeString = "width: " + window.innerWidth + " height: " + window.innerHeight;
+            setSize(sizeString);
+            console.log("Current window size: " + sizeString);
         }, 1000);
-
         return () => clearInterval(timer);
     }, [])
 
     return(
         <StyledBaseContainer>
-            <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "black"}}>
+            {/* <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "black"}}>
                 {size}
-            </p>
+            </p> */}
             <ViewContainer>
                 <Outlet></Outlet>
             </ViewContainer>

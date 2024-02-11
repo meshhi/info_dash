@@ -67,6 +67,11 @@ const Header = styled.h1`
     text-align: start;
     padding-inline: 10px;
     font-weight: 500;
+
+    @media (max-width: 1600px) and (max-height: 800px) {
+        font-size: 30px;
+        line-height: normal;
+    }
 `
 
 const TextList = styled.ol`
@@ -78,6 +83,17 @@ const TextList = styled.ol`
     gap: 30px;
     font-size: 20px;
     font-weight: 300;
+
+    @media (max-width: 1600px) and (max-height: 800px) {
+        font-size: 16px;
+        line-height: normal;
+    }
+
+    @media (min-width: 1601px) or (min-height: 801px) {
+        font-size: 18px;
+        line-height: normal;
+    }
+
 `
 
 const Text = styled.p`

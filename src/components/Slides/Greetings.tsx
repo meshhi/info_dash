@@ -88,7 +88,9 @@ export const Greetings: FC<PropsWithChildren> = () => {
     const [size, setSize] = useState<string>();
     useEffect(() => {
         const timer = setInterval(() => {
-            setSize("width: " + window.innerWidth + " height: " + window.innerHeight);
+            let sizeString = "width: " + window.innerWidth + " height: " + window.innerHeight;
+            setSize(sizeString);
+            console.log("Current window size: " + sizeString);
         }, 1000);
 
         return () => clearInterval(timer);
@@ -96,9 +98,9 @@ export const Greetings: FC<PropsWithChildren> = () => {
 
     return (
         <StyledGreetings>
-            <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "white"}}>
+            {/* <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "white"}}>
                 {size}
-            </p>
+            </p> */}
             <TextContent
                 variants={{
                     initial: {

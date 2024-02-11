@@ -38,6 +38,10 @@ const Cards = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 50px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        gap: 30px;
+    }
 `
 
 const Card = styled.div`
@@ -52,15 +56,26 @@ const Card = styled.div`
     border-radius: 15px;
     background-color: white;
     padding: 8px;
+    overflow: hidden;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        min-width: 624px;
+        max-width: 624px;
+        height: 220px;
+    }
 `
 
 const CardContent = styled.div`
     flex:1;
-    height: 210px;
+    height: 100%;
     margin-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        margin-left: 20px;
+    }
 `
 
 const CardImg = styled.img`
@@ -68,11 +83,22 @@ const CardImg = styled.img`
     height: 256px;
     border-radius: 15px;
     background-color: grey;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 192px;
+        height: 100%;;
+    }
 `
 const CardText = styled.p`
     font-size: 20px;
     font-weight: 300;
     text-align: start;
+    padding-block: 10px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+        height: 100px;
+    }
 `
 
 const Comment = styled.div`
@@ -83,6 +109,11 @@ const CardButton = styled(GreenButton)`
     color: white;
     min-width: 330px;
     min-height: 53px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        min-width: 250px;
+        min-height: 43px;
+    }
 `
 
 const ContenContainer = styled.div`

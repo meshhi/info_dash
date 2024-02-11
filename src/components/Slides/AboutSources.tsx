@@ -35,6 +35,10 @@ const Header = styled.h1`
     font-size: 60px;
     font-weight: 500;
     margin-bottom: 85px;
+
+    @media (max-height: 900px) {
+        margin-bottom: 50px;
+    }
 `
 
 const Content = styled.div`
@@ -52,11 +56,29 @@ const ContentText = styled.div`
 const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 441px;
-    min-width: 797px;
+    min-width: 500px;
+    min-height: 300px;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    @media (max-width: 1300px) and (max-height: 900px) {
+        width: 500px;
+        height: 300px;
+    }
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 600px;
+        height: 400px;
+    }
+
+    @media (min-width: 1601px) {
+        min-width: 50%;
+        min-height: 500px;
+    }
 `
 
 const StyledIFrame = styled.iframe`
@@ -87,6 +109,16 @@ const Line = styled.img`
     position: absolute;
     bottom: -10px;
     left: 0;
+
+    width: 700px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 600px;
+    }
+
+    @media (max-width: 1400px) and (max-height: 900px) {
+        width: 500px;
+    }
 `
 
 export const AboutSources: FC<PropsWithChildren> = () => {

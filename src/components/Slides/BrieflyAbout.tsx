@@ -20,6 +20,19 @@ const StyledContainer = styled(motion.section)`
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    overflow: hidden;
+
+    @media (max-height: 900px) {
+        height: 700px;
+    }
+
+    @media (max-width: 1600px) {
+        width: 1550px;
+    }
+
+    @media (min-width: 1601px) {
+        width: 1800px;
+    }
 `
 
 const ContenContainer = styled.div`
@@ -35,18 +48,32 @@ const ContenContainer = styled.div`
 const LeftContent = styled.article`
     color: black;
     padding: 80px 50px;
+
+    @media (max-height: 800px) {
+        padding: 50px 50px;
+    }
 `
 
 const Header = styled.h1`
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 30px;
+
+    @media (max-height: 900px) {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
 `
 
 const Text = styled.p`
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 1rem;
+
+    @media (max-height: 900px) {
+        margin-bottom: .5rem;
+    }
 `
 
 const CardsContent = styled.div`
@@ -54,6 +81,10 @@ const CardsContent = styled.div`
     left: 50px;
     bottom: 48px;
     color: black;
+
+    @media (max-height: 900px) {
+        bottom: 5px;
+    }
 `
 
 const LinkCard = styled.div`
@@ -77,6 +108,44 @@ const AWImage = styled.img`
     right: 0;
     bottom: 0;
     // max-width: 1137px;
+
+    @media (max-height: 900px) {
+        width: 1100px;
+        // height: 500px;
+    }
+
+    // @media (max-width: 1600px) {
+    //     width: 900px;
+    //     height: 735px;
+    // }
+`
+
+const AWImageContainer = styled.div`
+    // width: 900px;
+    // height: 735px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? aw_briefly
+    : "aw_briefly.png"});
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 920px;
+        height: 740px;
+    }
+
+    @media (max-width: 1600px) and (min-height: 901px) {
+        width: 920px;
+        height: 790px;
+    }
+
+    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 900px) and (max-height: 1200px){
+        width: 1170px;
+        height: 790px;
+    }
 `
 
 const Arrow = styled.div`
@@ -150,7 +219,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     <LinkCard>Источники данных
                         <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? arrow_top_briefly
-                            : "arrow_top_briefly.png"}
+                            : "arrow_top_briefly.svg"}
                             $width={157}
                             $height={312}
                             $backgroundColor="#789BB9"
@@ -160,7 +229,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     <LinkCard>Модели
                     <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? arrow_top_center_briefly
-                            : "arrow_top_center_briefly.png"}
+                            : "arrow_top_center_briefly.svg"}
                             $width={157}
                             $height={358}
                             $backgroundColor="#789BB9"
@@ -170,7 +239,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     <LinkCard>Виджеты
                     <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? arrow_bottom_center_briefly
-                            : "arrow_bottom_center_briefly.png"}
+                            : "arrow_bottom_center_briefly.svg"}
                             $width={177}
                             $height={400}
                             $backgroundColor="#789BB9"
@@ -180,7 +249,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     <LinkCard>Информационные панели
                     <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? arrow_bottom_briefly
-                            : "arrow_bottom_briefly.png"}
+                            : "arrow_bottom_briefly.svg"}
                             $width={170}
                             $height={446}
                             $backgroundColor="#789BB9"
@@ -189,11 +258,12 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     </LinkCard>
                 </CardsContent>
 
-
-                <AWImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                    ? aw_briefly
-                    : "aw_briefly.png"
-                }></AWImage>
+                <AWImageContainer>
+                    {/* <AWImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                        ? aw_briefly
+                        : "aw_briefly.png"
+                    }></AWImage> */}
+                </AWImageContainer>
             {/* </ContenContainer> */}
 
 

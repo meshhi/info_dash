@@ -19,6 +19,10 @@ const StyledContainer = styled(motion.section)`
     display: flex;
     flex-direction: column;
     position: relative;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        padding: 38px 50px;
+    }
 `
 
 const Header = styled.h1`
@@ -33,6 +37,7 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 585px;
+    gap: 40px;
 `
 
 const ContentLeft = styled.div`
@@ -57,6 +62,11 @@ const ContentText = styled.p`
     font-size: 20px;
     font-weight: 300;
     min-height: 72px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        // max-width: 89%;
+        height: 144px;
+    }
 `
 
 const ContentComment = styled.p`
@@ -74,23 +84,49 @@ const ContentComment = styled.p`
     padding: 24px 25px;
     border-bottom: 0;
     border-radius: 15px 15px 0 0;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+        font-weight: 300;
+    }
 `
 
 const ContentTextWithLine = styled.span`
+
     margin-top: 44px;
     margin-bottom: 33px;
     font-size: 16px;
     text-decoration: underline;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        margin-top: 24px;
+        margin-bottom: 13px;
+    }
 `
 
 const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 441px;
-    min-width: 797px;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
+
+    margin: 0 auto;
+
+    @media (max-width: 1300px) and (max-height: 900px) {
+        min-width: 500px;
+        min-height: 300px;
+    }
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        min-width: 600px;
+        min-height: 300px;
+    }
+
+    @media (min-width: 1601px) {
+        min-height: 441px;
+        min-width: 797px;
+    }
 `
 
 const StyledIFrame = styled.iframe`

@@ -18,6 +18,10 @@ const StyledContainer = styled(motion.section)`
     padding: 88px 50px;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        padding: 58px 50px;
+    }
 `
 
 const Header = styled.h1`
@@ -77,11 +81,24 @@ const ContentTextWithLine = styled.span`
 const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
-    min-height: 441px;
-    min-width: 797px;
     position: relative;
     border-radius: 15px;
     overflow: hidden;
+
+    @media (max-width: 1300px) and (max-height: 900px) {
+        min-width: 500px;
+        min-height: 300px;
+    }
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        min-width: 600px;
+        min-height: 400px;
+    }
+
+    @media (min-width: 1601px) {
+        min-height: 441px;
+        min-width: 797px;
+    }
 `
 
 const StyledIFrame = styled.iframe`

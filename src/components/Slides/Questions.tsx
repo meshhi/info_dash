@@ -25,6 +25,10 @@ const StyledContainer = styled(motion.section)`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        padding: 50px 50px 20px;
+    }
 `
 
 const ContenContainer = styled.div`
@@ -41,6 +45,10 @@ const Header = styled.h1`
     font-size: 40px;
     font-weight: 500;
     margin-bottom: 49px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        margin-bottom: 21px;
+    }
 `
 
 const TextContent = styled.p`
@@ -55,6 +63,10 @@ const Grid = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 36px;
     margin-bottom: 40px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        gap: 18px;
+    }
 `
 
 const GridItem = styled.div`
@@ -64,15 +76,19 @@ const GridItem = styled.div`
     background-color: #EDF3FA;
     background-color: white;
     gap: 20px;
-    min-height: 220px;
+    height: 220px;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        height: 190px;
+    }
 `
 
 const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    min-width: 211px;
-    min-height: 166px;
+    // min-width: 211px;
+    // min-height: 166px;
     background-color: #E3EAEF;
     flex-basis: 48%;
     border-radius: 15px;
@@ -82,6 +98,11 @@ const GridImageBg = styled.div`
     margin: 8px;
     max-width: 211px;
     background-position: 20px center;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        width: 211px;
+        height: 166px;
+    }
 `
 
 const GridImage = styled.img`
@@ -96,6 +117,10 @@ const GridText = styled.p`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+    }
 `
 
 const Comment = styled.div`
@@ -106,6 +131,10 @@ const Comment = styled.div`
     padding: 29px 54px;
     font-size: 20px;
     font-weight: 300;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+    }
 `
 
 const BoldLink = styled.a`
@@ -194,7 +223,7 @@ export const Questions: FC<PropsWithChildren> = () => {
                     }
                 </Grid>
                 <Comment>
-                А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – Data Driven культура (ссылка: https://t.me/awbi_ru). Подписывайтесь.
+                А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – <BoldLink href="https://t.me/awbi_ru">Data Driven культура</BoldLink>. Подписывайтесь.
                 </Comment>
             {/* </ContenContainer> */}
         </StyledContainer>
