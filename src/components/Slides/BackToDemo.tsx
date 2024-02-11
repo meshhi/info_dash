@@ -18,6 +18,7 @@ const StyledContainer = styled(motion.section)`
     padding: 80px 50px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
 `
 

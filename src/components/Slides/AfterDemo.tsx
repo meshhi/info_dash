@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
-
+import { GreenButton } from "../UI/Buttons/Buttons";
 const StyledContainer = styled(motion.section)`
     width: 100%;
     height: 100%;
@@ -34,23 +34,38 @@ const TextContent = styled.p`
 `
 
 const Cards = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 50px;
 `
 
 const Card = styled.div`
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     gap: 36px;
-    max-width: 478px;
+    min-width: 824px;
+    max-width: 824px;
+    border: 2px solid #48D6E5;
+    border-radius: 15px;
+    background-color: white;
+    padding: 8px;
+`
+
+const CardContent = styled.div`
+    flex:1;
+    height: 210px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 const CardImg = styled.img`
-    width: 478px;
-    height: 314px;
+    width: 292px;
+    height: 256px;
     border-radius: 15px;
     background-color: grey;
 `
@@ -63,6 +78,58 @@ const CardText = styled.p`
 const Comment = styled.div`
 
 `
+
+const CardButton = styled(GreenButton)`
+    color: white;
+    min-width: 330px;
+    min-height: 53px;
+`
+
+const cardsContent = [
+    {
+        text: () => {
+            return(
+                <p>Если вы просто хотели посмотреть на нашу BI – спасибо, что посмотрели❤️ 
+                <br></br>
+                <br></br>
+                Будем рады, если вы оставите обратную связь в этом небольшом опросе: </p>
+            )
+        },
+        btn: () => <CardButton>Перейти в опрос</CardButton>,
+        image: undefined
+    },
+    {
+        text: () => {
+            return(
+                <p>Если вы выбираете систему для внедрения – давайте вместе обсудим вашу задачу. Возможно, у вас остались какие-то вопросы или сомнения. 
+                <br></br>
+                <br></br>
+                Просто запишитесь на консультацию здесь –  </p>
+            )
+        },
+        btn: () => <CardButton>Записаться на консультацию</CardButton>,
+        image: undefined
+    },
+    {
+        text: () => {
+            return(
+                <p>Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – t.me/AnalyticWorkspace </p>
+            )
+        },
+        btn: () => <CardButton>Перейти</CardButton>,
+        image: undefined
+    },
+    {
+        text: () => {
+            return(
+                <p>Ближе к окончанию срока действия демо-версии мы напомним вам на почту об опросе и возможности консультации 😉
+                </p>
+            )
+        },
+        btn: false,
+        image: undefined
+    }
+]
 
 export const AfterDemo: FC<PropsWithChildren> = () => {
     
@@ -84,13 +151,22 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <Header>Где задавать вопросы и учиться?</Header>
+            <Header>Что делать после ознакомления с демо-версией</Header>
             <Cards>
+                {
+                    cardsContent.map(card => <Card>
+                        <CardContent>
+                            <CardText>
+                                {card.text()}
+                            </CardText>
+                            {card.btn ? card.btn() : false}
+                        </CardContent>
+                            <CardImg>
 
+                            </CardImg>
+                    </Card>)
+                }
             </Cards>
-            <Comment>
-            А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – Data Driven культура (ссылка: https://t.me/awbi_ru). Подписывайтесь.
-            </Comment>
         </StyledContainer>
         )
     }

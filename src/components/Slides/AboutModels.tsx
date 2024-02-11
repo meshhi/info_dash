@@ -32,22 +32,28 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 585px;
+    gap: 10%;
 `
 
 const ContentLeft = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     height: 100%;
+    text-wrap: balance;
+    // max-width: 797px;
 `
 
 const ContentRight = styled.div`
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     height: 100%;
+    // max-width: 797px;
 `
 
 const ContentText = styled.p`
@@ -55,7 +61,10 @@ const ContentText = styled.p`
     flex-direction: column;
     font-size: 20px;
     font-weight: 300;
-
+    max-width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+    word-wrap: break-word;
 `
 
 const ContentTextWithLine = styled.span`

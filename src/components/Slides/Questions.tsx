@@ -20,9 +20,10 @@ const StyledContainer = styled(motion.section)`
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
-    padding: 80px 50px;
+    padding: 80px 50px 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
 `
 
@@ -53,6 +54,7 @@ const GridItem = styled.div`
     background-color: #EDF3FA;
     background-color: white;
     gap: 20px;
+    min-height: 220px;
 `
 
 const GridImageBg = styled.div`
@@ -68,6 +70,8 @@ const GridImageBg = styled.div`
     justify-content: center;
     align-items: center;
     margin: 8px;
+    max-width: 211px;
+    background-position: 20px center;
 `
 
 const GridImage = styled.img`
@@ -94,34 +98,59 @@ const Comment = styled.div`
     font-weight: 300;
 `
 
+const BoldLink = styled.a`
+    text-decoration: underline;
+    color: black;
+    font-weight: 500;
+`
+
 export const Questions: FC<PropsWithChildren> = () => {
     const gridContent = [
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? questions_tg
+            : "questions_tg.png",
+            text: () => 
+            <p>
+                У нас есть сообщество в Телеграм. Многие пользователи <br></br> 
+                отмечают, что на любой вопрос получают оперативный <br></br>ответ. 
+                    <br></br>
+                    <br></br>
+                <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
+            </p>
+        },
+        {
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? questions_doc
+            : "questions_doc.png",
+            text: () => 
+            <p>
+                У системы есть документация с примерами <br></br> и картинками – если будут вопросы “как это работает”, <br></br> то в ней точно есть ответы
+                    <br></br>
+                    <br></br>
+                <BoldLink href="https://webhelp.analyticworkspace.ru/">Документация</BoldLink>
+            </p>
+        },
+        {
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+            ? questions_stepic
+            : "questions_stepic.png",
+            text: () => 
+            <p>
+                У нас есть бесплатный курс на Stepik – <BoldLink href="https://webhelp.analyticworkspace.ru/">"BI-аналитик"</BoldLink><br></br>Возможно, вы с него и пришли, чтобы практику делать.<br></br> Если нет – то скорее запишитесь, там мы учим навыкам<br></br> работы BI-аналитика. 
+                
+            </p>
+        },
+        {
+            src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? questions_chat
             : "questions_chat.png",
-            text: () => <h1>У нас есть сообщество в Телеграм. Многие пользователи отмечают,<br></br> что на любой вопрос получают оперативный\n ответ. 
-            t.me/awcommunity – присоединяйтесь. Спрашивайте и отвечайте!</h1>
+            text: () => 
+            <p>
+                У нас есть <BoldLink href="https://webhelp.analyticworkspace.ru/">форум</BoldLink> с описанием конкретных примеров,<br></br> там же вы можете оставить пожелания по развитию <br></br> функциональности системы – мы их ценим и стараемся <br></br> учитывать в будущих релизах.
+           
+            </p>
         },
-        // {
-        //     src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        //     ? questions_doc
-        //     : "questions_doc.png",
-        //     text: `У системы есть документация с примерами и картинками – если будут вопросы “как это работает”, то в ней точно есть ответы
-        //     Документация`
-        // },
-        // {
-        //     src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        //     ? questions_stepic
-        //     : "questions_stepic.png",
-        //     text: "У нас есть бесплатный курс на Stepik – “BI-аналитик”Возможно, вы с него и пришли, чтобы практику делать. Если нет – то скорее запишитесь, там мы учим навыкам работы BI-аналитика. "
-        // },
-        // {
-        //     src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        //     ? questions_tg
-        //     : "questions_tg.png",
-        //     text: "У нас есть форум с описанием конкретных примеров, там же вы можете оставить пожелания по развитию функциональности системы – мы их ценим и стараемся учитывать в будущих релизах."
-        // }
     ]
 
     return (
