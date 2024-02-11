@@ -25,20 +25,11 @@ const StyledContainer = styled(motion.section)`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         padding: 50px 50px 20px;
     }
-`
-
-const ContenContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
 `
 
 const Header = styled.h1`
@@ -52,9 +43,7 @@ const Header = styled.h1`
 `
 
 const TextContent = styled.p`
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 55px;
+    padding-right: 10px;
 `
 
 const Grid = styled.div`
@@ -66,6 +55,10 @@ const Grid = styled.div`
 
     @media (max-width: 1600px) and (max-height: 900px) {
         gap: 18px;
+    }
+
+    @media (max-height: 750px) {
+        margin-bottom: 20px;
     }
 `
 
@@ -132,8 +125,16 @@ const Comment = styled.div`
     font-size: 20px;
     font-weight: 300;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
+    @media (max-width: 1600px) {
         font-size: 16px;
+    }
+
+    @media (max-height: 900px) {
+        font-size: 16px;
+    }
+
+    @media (max-height: 750px) {
+        padding: 15px 54px;
     }
 `
 
@@ -143,6 +144,12 @@ const BoldLink = styled.a`
     font-weight: 500;
 `
 
+const AdaptiveText = styled.p`
+    @media (max-height: 771px) {
+        display: none;
+    }
+`
+
 export const Questions: FC<PropsWithChildren> = () => {
     const gridContent = [
         {
@@ -150,45 +157,49 @@ export const Questions: FC<PropsWithChildren> = () => {
             ? questions_tg
             : "questions_tg.png",
             text: () => 
-            <p>
+            <TextContent>
                 У нас есть сообщество в Телеграм. Многие пользователи <br></br> 
                 отмечают, что на любой вопрос получают оперативный <br></br>ответ. 
                     <br></br>
                     <br></br>
-                <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
-            </p>
+                    <AdaptiveText>
+                        <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
+                    </AdaptiveText>
+
+
+            </TextContent>
         },
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? questions_doc
             : "questions_doc.png",
             text: () => 
-            <p>
+            <TextContent>
                 У системы есть документация с примерами <br></br> и картинками – если будут вопросы “как это работает”, <br></br> то в ней точно есть ответы
                     <br></br>
                     <br></br>
                 <BoldLink href="https://webhelp.analyticworkspace.ru/">Документация</BoldLink>
-            </p>
+            </TextContent>
         },
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? questions_stepic
             : "questions_stepic.png",
             text: () => 
-            <p>
+            <TextContent>
                 У нас есть бесплатный курс на Stepik – <BoldLink href="https://webhelp.analyticworkspace.ru/">"BI-аналитик"</BoldLink><br></br>Возможно, вы с него и пришли, чтобы практику делать.<br></br> Если нет – то скорее запишитесь, там мы учим навыкам<br></br> работы BI-аналитика. 
                 
-            </p>
+            </TextContent>
         },
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             ? questions_chat
             : "questions_chat.png",
             text: () => 
-            <p>
+            <TextContent>
                 У нас есть <BoldLink href="https://webhelp.analyticworkspace.ru/">форум</BoldLink> с описанием конкретных примеров,<br></br> там же вы можете оставить пожелания по развитию <br></br> функциональности системы – мы их ценим и стараемся <br></br> учитывать в будущих релизах.
            
-            </p>
+            </TextContent>
         },
     ]
 
@@ -210,7 +221,6 @@ export const Questions: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            {/* <ContenContainer> */}
                 <Header>Где задавать вопросы и учиться?</Header>
                 <Grid>
                     {
@@ -225,7 +235,6 @@ export const Questions: FC<PropsWithChildren> = () => {
                 <Comment>
                 А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – <BoldLink href="https://t.me/awbi_ru">Data Driven культура</BoldLink>. Подписывайтесь.
                 </Comment>
-            {/* </ContenContainer> */}
         </StyledContainer>
         )
     }
