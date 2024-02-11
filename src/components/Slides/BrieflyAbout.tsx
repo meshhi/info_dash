@@ -21,6 +21,13 @@ const StyledContainer = styled(motion.section)`
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+`
+
+const GraphicContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    hegiht: 100%;
+    bottom: 0;
 
     @media (max-height: 900px) {
         height: 700px;
@@ -33,16 +40,6 @@ const StyledContainer = styled(motion.section)`
     @media (min-width: 1601px) {
         width: 1800px;
     }
-`
-
-const ContenContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
 `
 
 const LeftContent = styled.article`
@@ -103,26 +100,7 @@ const LinkCard = styled.div`
     position: relative;
 `
 
-const AWImage = styled.img`
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    // max-width: 1137px;
-
-    @media (max-height: 900px) {
-        width: 1100px;
-        // height: 500px;
-    }
-
-    // @media (max-width: 1600px) {
-    //     width: 900px;
-    //     height: 735px;
-    // }
-`
-
 const AWImageContainer = styled.div`
-    // width: 900px;
-    // height: 735px;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -142,26 +120,15 @@ const AWImageContainer = styled.div`
         height: 790px;
     }
 
-    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 900px) and (max-height: 1200px){
+    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 500px) and (max-height: 900px){
+        width: 1170px;
+        height: 740px;
+    }
+
+    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 901px) and (max-height: 1200px){
         width: 1170px;
         height: 790px;
     }
-`
-
-const Arrow = styled.div`
-    --_width: 561px;
-    width: var(--_width);
-    height: 250px;
-    position: absolute;
-    right: calc(2px - var(--_width));
-    bottom: calc(var(--_height) / 2);
-    z-index: 5;
-    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? arrow_top_briefly
-        : "arrow_top_briefly.svg"});
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 `
 
 const Icon = styled.div<{ $srcImg?: string; $width?: number; $height?: number; $margin?: string; $backgroundColor?: string; $right?: string;}>`
@@ -202,19 +169,18 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            {/* <ContenContainer> */}
-
-                <LeftContent>
-                    <Header>
-                        Кратко про разделы<br></br> системы
-                    </Header>
-                    <Text>
-                        Не удивляйтесь, что у нас всего 4 основных<br></br> пункта в меню – их хватит, чтобы сделать<br></br> потрясающую отчётность.
-                    </Text>
-                    <Text>
-                        А ещё можно в тёмную тему переключиться 😉 <br></br>Дашборды тоже переключатся – многим это<br></br> нравится.
-                    </Text>
-                </LeftContent>
+            <LeftContent>
+                <Header>
+                    Кратко про разделы<br></br> системы
+                </Header>
+                <Text>
+                    Не удивляйтесь, что у нас всего 4 основных<br></br> пункта в меню – их хватит, чтобы сделать<br></br> потрясающую отчётность.
+                </Text>
+                <Text>
+                    А ещё можно в тёмную тему переключиться 😉 <br></br>Дашборды тоже переключатся – многим это<br></br> нравится.
+                </Text>
+            </LeftContent>
+            <GraphicContainer>
                 <CardsContent>
                     <LinkCard>Источники данных
                         <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
@@ -257,16 +223,9 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                             ></Icon>
                     </LinkCard>
                 </CardsContent>
-
                 <AWImageContainer>
-                    {/* <AWImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                        ? aw_briefly
-                        : "aw_briefly.png"
-                    }></AWImage> */}
                 </AWImageContainer>
-            {/* </ContenContainer> */}
-
-
+            </GraphicContainer>
         </StyledContainer>
     )
 }
