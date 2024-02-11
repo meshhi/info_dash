@@ -26,6 +26,8 @@ const ContenContainer = styled.div`
     position: relative;
     max-width: 1796px;
     max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
     height: 100%;
     margin: 0 auto;
 `
@@ -150,9 +152,9 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                             ? arrow_top_briefly
                             : "arrow_top_briefly.png"}
                             $width={157}
-                            $height={322}
+                            $height={312}
                             $backgroundColor="#789BB9"
-                            $right={"-156px"}
+                            $right={"-154px"}
                             ></Icon>
                     </LinkCard>
                     <LinkCard>Модели
@@ -160,9 +162,9 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                             ? arrow_top_center_briefly
                             : "arrow_top_center_briefly.png"}
                             $width={157}
-                            $height={352}
+                            $height={358}
                             $backgroundColor="#789BB9"
-                            $right={"-154px"}
+                            $right={"-155px"}
                             ></Icon>
                     </LinkCard>
                     <LinkCard>Виджеты
@@ -170,19 +172,19 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                             ? arrow_bottom_center_briefly
                             : "arrow_bottom_center_briefly.png"}
                             $width={177}
-                            $height={392}
+                            $height={400}
                             $backgroundColor="#789BB9"
-                            $right={"-164px"}
+                            $right={"-165px"}
                             ></Icon>
                     </LinkCard>
                     <LinkCard>Информационные панели
                     <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? arrow_bottom_briefly
                             : "arrow_bottom_briefly.png"}
-                            $width={187}
-                            $height={442}
+                            $width={170}
+                            $height={446}
                             $backgroundColor="#789BB9"
-                            $right={"-172px"}
+                            $right={"-164px"}
                             ></Icon>
                     </LinkCard>
                 </CardsContent>
