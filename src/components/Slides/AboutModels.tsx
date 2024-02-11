@@ -47,7 +47,6 @@ const ContentLeft = styled.div`
     align-items: flex-start;
     height: 100%;
     text-wrap: balance;
-    // max-width: 797px;
 `
 
 const ContentRight = styled.div`
@@ -57,7 +56,13 @@ const ContentRight = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     height: 100%;
-    // max-width: 797px;
+`
+
+const TextWrapper = styled.div`
+    min-height: 167.95px;
+    display: flex;
+    flex-direction: column;    
+    overflow: hidden;
 `
 
 const ContentText = styled.p`
@@ -71,11 +76,17 @@ const ContentText = styled.p`
     word-wrap: break-word;
 `
 
+
 const ContentTextWithLine = styled.span`
     margin-top: 44px;
     margin-bottom: 33px;
     font-size: 16px;
     text-decoration: underline;
+
+    @media (max-width: 1200px) {
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
 `
 
 const ContentVideo = styled.div`
@@ -84,21 +95,8 @@ const ContentVideo = styled.div`
     position: relative;
     border-radius: 15px;
     overflow: hidden;
-
-    @media (max-width: 1300px) and (max-height: 900px) {
-        min-width: 500px;
-        min-height: 300px;
-    }
-
-    @media (max-width: 1600px) and (max-height: 900px) {
-        min-width: 600px;
-        min-height: 400px;
-    }
-
-    @media (min-width: 1601px) {
-        min-height: 441px;
-        min-width: 797px;
-    }
+    width: 100%;
+    height: 100%;
 `
 
 const StyledIFrame = styled.iframe`
@@ -131,12 +129,14 @@ export const AboutModels: FC<PropsWithChildren> = () => {
             </Header>
             <Content>
                 <ContentLeft>
-                    <ContentText>
-                    – это раздел, в котором вы можете объединить одни данные с другими, трансформировать их, применить прогнозирование и много-много другого. ETL и ML – это наша суперсила!
-                    </ContentText>
-                    <ContentTextWithLine>
-                        Посмотрите краткий обзор раздела Модели:
-                    </ContentTextWithLine>
+                    <TextWrapper>
+                        <ContentText>
+                        – это раздел, в котором вы можете объединить одни данные с другими, трансформировать их, применить прогнозирование и много-много другого. ETL и ML – это наша суперсила!
+                        </ContentText>
+                        <ContentTextWithLine>
+                            Посмотрите краткий обзор раздела Модели:
+                        </ContentTextWithLine>
+                    </TextWrapper>
                     <ContentVideo>
                         <StyledIFrame 
                         src="https://www.youtube.com/embed/UUNxPv0xNsw?si=hHIbuHyF0Wd7DCde" 
@@ -147,9 +147,11 @@ export const AboutModels: FC<PropsWithChildren> = () => {
                     </ContentVideo>
                 </ContentLeft>
                 <ContentRight>
-                    <ContentText>
-                        А ещё есть большой эфир, в котором рассказываем о применении ML (его посмотрите позже):
-                    </ContentText>
+                    <TextWrapper>
+                        <ContentText>
+                            А ещё есть большой эфир, в котором рассказываем о применении ML (его посмотрите позже):
+                        </ContentText>
+                    </TextWrapper>
                     <ContentVideo>
                         <StyledIFrame 
                         src="https://www.youtube.com/embed/x-bBELwwcxE?si=qr_NA18_CXSCBejZ" 

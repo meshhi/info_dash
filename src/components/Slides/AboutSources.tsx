@@ -19,16 +19,7 @@ const StyledContainer = styled(motion.section)`
     padding: 88px 50px;
     display: flex;
     flex-direction: column;
-`
-
-const ContentContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
+    overflow: scroll;
 `
 
 const Header = styled.h1`
@@ -64,6 +55,11 @@ const ContentVideo = styled.div`
     justify-content: center;
     align-items: center;
     overflow: hidden;
+
+    @media (max-width: 1300px) and (max-height: 750px) {
+        width: 400px;
+        height: 200px;
+    }
 
     @media (max-width: 1300px) and (max-height: 900px) {
         width: 500px;
@@ -140,7 +136,6 @@ export const AboutSources: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            {/* <ContentContainer> */}
                 <Header>
                     Что делать в разделах системы
                 </Header>
@@ -170,7 +165,6 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                         ></StyledIFrame>
                     </ContentVideo>
                 </Content>
-            {/* </ContentContainer> */}
         </StyledContainer>
     )
 }
