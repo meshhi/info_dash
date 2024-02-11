@@ -18,25 +18,16 @@ const StyledContainer = styled(motion.section)`
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
-    padding: 80px 50px;
+    padding: 60px 50px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+    overflow: hidden;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         padding: 50px 50px;
     }
-`
-
-const ContentContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
 `
 
 const Header = styled.h1`
@@ -44,8 +35,12 @@ const Header = styled.h1`
     font-weight: 500;
     margin-bottom: 49px;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
-        // margin-bottom: 21px;
+    @media (max-height: 900px) {
+        margin-bottom: 25px;
+    }
+
+    @media (max-width: 800px)  {
+        font-size: 30px;
     }
 `
 
@@ -54,8 +49,12 @@ const TextContent = styled.p`
     font-weight: 300;
     margin-bottom: 55px;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
-        // margin-bottom: 21px;
+    @media (max-height: 900px) {
+        margin-bottom: 25px;
+    }
+
+    @media (max-width: 800px)  {
+        font-size: 16px;
     }
 `
 
@@ -64,10 +63,14 @@ const Cards = styled.div`
     flex-direction: row;
     justify-content: space-between;
     gap: 40px;
+
+    @media (max-width: 1272px) {
+        justify-content: center;
+    }
 `
 
 const Card = styled.div`
-    flex: 1;
+    flex: 1 350px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -76,6 +79,16 @@ const Card = styled.div`
     max-width: 478px;
     overflow: scroll;
 
+    @media (max-width: 1272px) {
+        flex-basis: 350px;
+        flex-grow: 0;
+        overflow: visible;
+
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+
     @media (max-width: 1600px) and (max-height: 900px) {
         // max-width: 178px;
         // max-height: 144px;
@@ -83,7 +96,7 @@ const Card = styled.div`
 `
 
 const CardImg = styled.img`
-    width: 478px;
+    min-width: 350px;
     height: 314px;
     border-radius: 15px;
     background-color: grey;
