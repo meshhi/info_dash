@@ -85,6 +85,16 @@ const CardButton = styled(GreenButton)`
     min-height: 53px;
 `
 
+const ContenContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 const cardsContent = [
     {
         text: () => {
@@ -151,22 +161,24 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <Header>Что делать после ознакомления с демо-версией</Header>
-            <Cards>
-                {
-                    cardsContent.map(card => <Card>
-                        <CardContent>
-                            <CardText>
-                                {card.text()}
-                            </CardText>
-                            {card.btn ? card.btn() : false}
-                        </CardContent>
-                            <CardImg>
+            <ContenContainer>
+                <Header>Что делать после ознакомления с демо-версией</Header>
+                <Cards>
+                    {
+                        cardsContent.map(card => <Card>
+                            <CardContent>
+                                <CardText>
+                                    {card.text()}
+                                </CardText>
+                                {card.btn ? card.btn() : false}
+                            </CardContent>
+                                <CardImg>
 
-                            </CardImg>
-                    </Card>)
-                }
-            </Cards>
-        </StyledContainer>
+                                </CardImg>
+                        </Card>)
+                    }
+                </Cards>
+            </ContenContainer>
+            </StyledContainer>
         )
     }

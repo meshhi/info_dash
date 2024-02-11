@@ -27,6 +27,16 @@ const StyledContainer = styled(motion.section)`
     position: relative;
 `
 
+const ContenContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 const Header = styled.h1`
     font-size: 40px;
     font-weight: 500;
@@ -171,20 +181,22 @@ export const Questions: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <Header>Где задавать вопросы и учиться?</Header>
-            <Grid>
-                {
-                    gridContent.map(item => <GridItem key={item.text}>
-                        <GridImageBg>
-                            <GridImage src={item.src}></GridImage>
-                        </GridImageBg>
-                        <GridText>{item.text()}</GridText>
-                    </GridItem>)
-                }
-            </Grid>
-            <Comment>
-            А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – Data Driven культура (ссылка: https://t.me/awbi_ru). Подписывайтесь.
-            </Comment>
+            <ContenContainer>
+                <Header>Где задавать вопросы и учиться?</Header>
+                <Grid>
+                    {
+                        gridContent.map(item => <GridItem key={item.text}>
+                            <GridImageBg>
+                                <GridImage src={item.src}></GridImage>
+                            </GridImageBg>
+                            <GridText>{item.text()}</GridText>
+                        </GridItem>)
+                    }
+                </Grid>
+                <Comment>
+                А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – Data Driven культура (ссылка: https://t.me/awbi_ru). Подписывайтесь.
+                </Comment>
+            </ContenContainer>
         </StyledContainer>
         )
     }

@@ -99,6 +99,16 @@ const StyledIFrame = styled.iframe`
     height: 100%;
 `
 
+const ContentContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 export const AboutWidgets: FC<PropsWithChildren> = () => {
     return (
         <StyledContainer
@@ -118,49 +128,52 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <Content>
-                <ContentLeft>
-                    <Header>
-                        Виджеты
-                    </Header>
-                    <ContentText>
-                    – это кирпичи, из которых создаются информационные панели (дашборды).<br></br> Виджет и сам по себе является готовым инструментом аналитики –<br></br> вы можете им поделиться с коллегами, а также выгрузить в виде файла.
-                    </ContentText>
-                    <ContentTextWithLine>
-                        Посмотрите краткое видео, в котором мы делаем обзор виджетов:
-                    </ContentTextWithLine>
-                    <ContentVideo>
-                        <StyledIFrame 
-                        src="https://www.youtube.com/embed/FqIQ_nRudIc?si=UIEqUue5R5nt5Kvq" 
-                        title="AW_sources_tutorial" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame>
-                    </ContentVideo>
-                </ContentLeft>
-                <ContentRight>
-                    <Header>
-                        Информационные панели
-                    </Header>
-                    <ContentText>
-                        – это дашборды, собранные из виджетов, обогащённые при этом фильтрами,<br></br> контейнерами, кнопками и прочим.
-                    </ContentText>
-                    <ContentTextWithLine>
-                        Посмотрите краткое видео, в котором мы делаем обзор информационных панелей:
-                    </ContentTextWithLine>
-                    <ContentVideo>
-                        <StyledIFrame 
-                        src="https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK" 
-                        title="AW_sources_tutorial" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame>
-                    </ContentVideo>
-                </ContentRight>
-            </Content>
-            <ContentComment>
-                Вам сразу доступны примеры моделей, виджетов и дашбордов – это специально. Мы их создали, чтобы вы могли посмотреть готовые. Но вы смело создавайте свои!
-            </ContentComment>
+            <ContentContainer>
+                <Content>
+                    <ContentLeft>
+                        <Header>
+                            Виджеты
+                        </Header>
+                        <ContentText>
+                        – это кирпичи, из которых создаются информационные панели (дашборды).<br></br> Виджет и сам по себе является готовым инструментом аналитики –<br></br> вы можете им поделиться с коллегами, а также выгрузить в виде файла.
+                        </ContentText>
+                        <ContentTextWithLine>
+                            Посмотрите краткое видео, в котором мы делаем обзор виджетов:
+                        </ContentTextWithLine>
+                        <ContentVideo>
+                            <StyledIFrame 
+                            src="https://www.youtube.com/embed/FqIQ_nRudIc?si=UIEqUue5R5nt5Kvq" 
+                            title="AW_sources_tutorial" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
+                            ></StyledIFrame>
+                        </ContentVideo>
+                    </ContentLeft>
+                    <ContentRight>
+                        <Header>
+                            Информационные панели
+                        </Header>
+                        <ContentText>
+                            – это дашборды, собранные из виджетов, обогащённые при этом фильтрами,<br></br> контейнерами, кнопками и прочим.
+                        </ContentText>
+                        <ContentTextWithLine>
+                            Посмотрите краткое видео, в котором мы делаем обзор информационных панелей:
+                        </ContentTextWithLine>
+                        <ContentVideo>
+                            <StyledIFrame 
+                            src="https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK" 
+                            title="AW_sources_tutorial" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
+                            ></StyledIFrame>
+                        </ContentVideo>
+                    </ContentRight>
+                </Content>
+                <ContentComment>
+                    Вам сразу доступны примеры моделей, виджетов и дашбордов – это специально. Мы их создали, чтобы вы могли посмотреть готовые. Но вы смело создавайте свои!
+                </ContentComment>
+
+            </ContentContainer>
         </StyledContainer>
     )
 }

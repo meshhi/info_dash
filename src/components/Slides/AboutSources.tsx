@@ -21,6 +21,16 @@ const StyledContainer = styled(motion.section)`
     flex-direction: column;
 `
 
+const ContentContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 const Header = styled.h1`
     font-size: 60px;
     font-weight: 500;
@@ -98,36 +108,37 @@ export const AboutSources: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-
-            <Header>
-                Что делать в разделах системы
-            </Header>
-            <Content>
-                <ContentText>
-                    <TextHeader>
-                        Источники данных
-                    </TextHeader>
-                    <Text>
-                        – подключаете источники данных.<br></br> Если у вас нет готовых, то мы сделали<br></br>подборку нескольких датасетов.
-                    </Text>
-                    <TextWithLine>
-                        Посмотрите краткий обзор раздела Модели:
-                        <Line src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                            ? arrow_right_sources
-                            : "arrow_right_sources.svg"
-                        }
-                        ></Line>
-                    </TextWithLine>
-                </ContentText>
-                <ContentVideo>
-                    <StyledIFrame 
-                    src="https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD" 
-                    title="AW_sources_tutorial" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                    ></StyledIFrame>
-                </ContentVideo>
-            </Content>
+            <ContentContainer>
+                <Header>
+                    Что делать в разделах системы
+                </Header>
+                <Content>
+                    <ContentText>
+                        <TextHeader>
+                            Источники данных
+                        </TextHeader>
+                        <Text>
+                            – подключаете источники данных.<br></br> Если у вас нет готовых, то мы сделали<br></br>подборку нескольких датасетов.
+                        </Text>
+                        <TextWithLine>
+                            Посмотрите краткий обзор раздела Модели:
+                            <Line src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                                ? arrow_right_sources
+                                : "arrow_right_sources.svg"
+                            }
+                            ></Line>
+                        </TextWithLine>
+                    </ContentText>
+                    <ContentVideo>
+                        <StyledIFrame 
+                        src="https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD" 
+                        title="AW_sources_tutorial" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
+                        ></StyledIFrame>
+                    </ContentVideo>
+                </Content>
+            </ContentContainer>
         </StyledContainer>
     )
 }

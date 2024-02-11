@@ -14,6 +14,16 @@ const StyledContainer = styled.section`
     gap: 40px;
 `
 
+const ContenContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 const LeftContent = styled(motion.div)`
     height: 100%;
     flex: 1;
@@ -136,70 +146,72 @@ export const Restrictions: FC<PropsWithChildren> = () => {
 
     return (
         <StyledContainer>
-            <LeftContent
-                variants={{
-                    initial: {
-                        opacity: 0,
-                        y: "100px",
-                    },
-                    final: {
-                        opacity: 1,
-                        y: "0px",
-                        transition: {
-                            duration: 0.5,
-                            delay: 0,
+            {/* <ContenContainer> */}
+                <LeftContent
+                    variants={{
+                        initial: {
+                            opacity: 0,
+                            y: "100px",
                         },
-                    }
-                }}
-                initial="initial"
-                animate="final"
-            >
-                <Header>
-                    Чтобы хватило на всех, мы сделали небольшие технические ограничения в демо-версии:
-                </Header>
-                <TextList>
-                    <li>Вы сможете использовать до 5 файловых источников,<br></br> до 100 Мб каждый. Базы данных и веб-сервисы можете<br></br> подключать в любом количестве.</li>
-                    <li>Вы можете создать до 5 моделей, включая удалённые.<br></br> Мы советуем не удалять модели, а переиспользовать.</li>
-                    <li>Во время визуализации и анализа данных мы<br></br> не используем прямое подключение к вашим <br></br>источникам – все данные после трансформации<br></br> в разделе “Модели” перекладываются в аналитическую<br></br> витрину в Clickhouse. Мы ожидаем, что данные в одной <br></br>витрине будут “весить” до 524 Мб.</li>
-                </TextList>
-            </LeftContent>
-            <RightContent
-                variants={{
-                    initial: {
-                        opacity: 0,
-                        y: "-100px",
-                    },
-                    final: {
-                        opacity: 1,
-                        y: "0px",
-                        transition: {
-                            duration: 0.5,
-                            delay: 0,
-                        },
-                    }
-                }}
-                initial="initial"
-                animate="final"
-            >
-                <RightTopContent>
+                        final: {
+                            opacity: 1,
+                            y: "0px",
+                            transition: {
+                                duration: 0.5,
+                                delay: 0,
+                            },
+                        }
+                    }}
+                    initial="initial"
+                    animate="final"
+                >
                     <Header>
-                        Кстати!
+                        Чтобы хватило на всех, мы сделали небольшие технические ограничения в демо-версии:
                     </Header>
-                    <Text>
-                        Мы советуем работать с демо-версией AW BI <br></br> с ноутбука или ПК. Смотреть дашборды можно <br></br> и со смартфона, если они адаптированы,<br></br> но работать с системой лучше с использованием <br></br>мышки или аналога.
-                    </Text>
-                </RightTopContent>
-                <RightBottomContent>
-                    <Text style={{ "fontSize": "30px", "fontWeight": "300", "marginTop": "43px", "marginLeft": "20px" }}>
-                        Если вам нужна демо-версия <br></br> для работы на своих серверах – <br></br> напишите нам:
-                    </Text>
-                    <StyledLink 
-                    href="https://t.me/awcommunity"
-                    target="_blank"
-                    >
-                        t.me/AnalyticWorkspace
-                    </StyledLink>
-                </RightBottomContent>
-            </RightContent>
+                    <TextList>
+                        <li>Вы сможете использовать до 5 файловых источников,<br></br> до 100 Мб каждый. Базы данных и веб-сервисы можете<br></br> подключать в любом количестве.</li>
+                        <li>Вы можете создать до 5 моделей, включая удалённые.<br></br> Мы советуем не удалять модели, а переиспользовать.</li>
+                        <li>Во время визуализации и анализа данных мы<br></br> не используем прямое подключение к вашим <br></br>источникам – все данные после трансформации<br></br> в разделе “Модели” перекладываются в аналитическую<br></br> витрину в Clickhouse. Мы ожидаем, что данные в одной <br></br>витрине будут “весить” до 524 Мб.</li>
+                    </TextList>
+                </LeftContent>
+                <RightContent
+                    variants={{
+                        initial: {
+                            opacity: 0,
+                            y: "-100px",
+                        },
+                        final: {
+                            opacity: 1,
+                            y: "0px",
+                            transition: {
+                                duration: 0.5,
+                                delay: 0,
+                            },
+                        }
+                    }}
+                    initial="initial"
+                    animate="final"
+                >
+                    <RightTopContent>
+                        <Header>
+                            Кстати!
+                        </Header>
+                        <Text>
+                            Мы советуем работать с демо-версией AW BI <br></br> с ноутбука или ПК. Смотреть дашборды можно <br></br> и со смартфона, если они адаптированы,<br></br> но работать с системой лучше с использованием <br></br>мышки или аналога.
+                        </Text>
+                    </RightTopContent>
+                    <RightBottomContent>
+                        <Text style={{ "fontSize": "30px", "fontWeight": "300", "marginTop": "43px", "marginLeft": "20px" }}>
+                            Если вам нужна демо-версия <br></br> для работы на своих серверах – <br></br> напишите нам:
+                        </Text>
+                        <StyledLink 
+                        href="https://t.me/awcommunity"
+                        target="_blank"
+                        >
+                            t.me/AnalyticWorkspace
+                        </StyledLink>
+                    </RightBottomContent>
+                </RightContent>
+            {/* </ContenContainer> */}
         </StyledContainer>)
 }

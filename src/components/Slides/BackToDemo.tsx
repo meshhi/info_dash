@@ -2,6 +2,9 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
+import back_demo_1 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_1.jpg'
+import back_demo_2 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_2.png'
+import back_demo_3 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_3.png'
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -20,6 +23,16 @@ const StyledContainer = styled(motion.section)`
     flex-direction: column;
     justify-content: space-between;
     position: relative;
+`
+
+const ContentContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
 `
 
 const Header = styled.h1`
@@ -54,6 +67,9 @@ const CardImg = styled.img`
     height: 314px;
     border-radius: 15px;
     background-color: grey;
+    border: 2px solid #48D6E5;
+    border-radius: 15px;
+    background-color: #EDF3FA;
 `
 const CardText = styled.p`
     font-size: 20px;
@@ -65,23 +81,23 @@ const cards = [
     {
         id: 1,
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? bg_about_models
-        : "bg_about_models.svg",
-        text: "Вы можете перейти к демо-версии через личный кабинет на сайте:"
+        ? back_demo_1
+        : "back_demo_1.jpg",
+        text: () => <p>"Вы можете перейти к демо-версии через личный кабинет на сайте:"</p>
     },
     {
         id: 2,
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? bg_about_models
-        : "bg_about_models.svg",
-        text: "А если вы окажетесь на странице входа в AW BI, то жмите “Войти через личный кабинет”"
+        ? back_demo_2
+        : "back_demo_2.png",
+        text: () => <p>"А если вы окажетесь на странице входа в AW BI, то жмите “Войти через личный кабинет”"</p>
     },
     {
         id: 3,
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? bg_about_models
-        : "bg_about_models.svg",
-        text: "Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: КУДА"
+        ? back_demo_3
+        : "back_demo_3.png",
+        text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: КУДА"</p>
     }
 ]
 
@@ -105,17 +121,19 @@ export const BackToDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <Header>Как войти в демо версию, если вышли</Header>
-            <TextContent>Демо-версия соединена с личным кабинетом на сайте AW BI – analyticworkspace.ru. Мы это сделали штатными средствами системы – так и вы сможете встроить нашу BI в свой ИТ-ландшафт.</TextContent>
-            <Cards>
-                {
-                    cards.map(card => 
-                    <Card key={card.id}>
-                        <CardImg src={card.img}></CardImg>
-                        <CardText>{card.text}</CardText>
-                    </Card>)
-                }
-            </Cards>
+            <ContentContainer>
+                <Header>Как войти в демо версию, если вышли</Header>
+                <TextContent>Демо-версия соединена с личным кабинетом на сайте AW BI – analyticworkspace.ru. Мы это сделали штатными средствами системы – так и вы сможете встроить нашу BI в свой ИТ-ландшафт.</TextContent>
+                <Cards>
+                    {
+                        cards.map(card => 
+                        <Card key={card.id}>
+                            <CardImg src={card.img}></CardImg>
+                            <CardText>{card.text()}</CardText>
+                        </Card>)
+                    }
+                </Cards>
+            </ContentContainer>
         </StyledContainer>
         )
     }

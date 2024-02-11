@@ -20,6 +20,16 @@ const StyledContainer = styled.section`
     gap: 40px;
 `
 
+const ContenContainer = styled.div`
+    position: relative;
+    max-width: 1796px;
+    max-height: 850px;
+    min-width: 1796px;
+    min-height: 850px;
+    height: 100%;
+    margin: 0 auto;
+`
+
 const LeftContent = styled(motion.div)`
     height: 100%;
     flex: 1;
@@ -91,7 +101,9 @@ const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    min-width: 48%;
+    min-width: 240px;
+    max-width: 240px;
+    max-height:188px;
     height: 100%;
     background-color: #E3EAEF;
     flex-basis: 48%;
@@ -155,10 +167,40 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
     return (
         <StyledContainer>
             <LeftContent
+                variants={{
+                    initial: {
+                        opacity: 0,
+                        y: "100px",
+                    },
+                    final: {
+                        opacity: 1,
+                        y: "0px",
+                        transition: {
+                            duration: 0.5,
+                            delay: 0,
+                        },
+                    }
+                }}
+                initial="initial"
+                animate="final"
+                >
+                    <Header>
+                        Что можно сделать в демо-версии?
+                    </Header>
+                    <Text>
+                        Демо-версия полнофункциональная – у вас <br></br> не будет только админских функций (добавление пользователей, ролей, настройка рассылки <br></br>и прочее).
+                    </Text>
+                        <LeftImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? can_left
+                            : "can_left.svg"
+                        }>
+                        </LeftImage>
+            </LeftContent>
+            <RightContent
             variants={{
                 initial: {
                     opacity: 0,
-                    y: "100px",
+                    y: "-100px",
                 },
                 final: {
                     opacity: 1,
@@ -172,53 +214,24 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
             >
-                <Header>
-                    Что можно сделать в демо-версии?
-                </Header>
-                <Text>
-                    Демо-версия полнофункциональная – у вас <br></br> не будет только админских функций (добавление пользователей, ролей, настройка рассылки <br></br>и прочее).
-                </Text>
-                    <LeftImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                        ? can_left
-                        : "can_left.svg"
-                    }>
-                    </LeftImage>
-        </LeftContent>
-        <RightContent
-        variants={{
-            initial: {
-                opacity: 0,
-                y: "-100px",
-            },
-            final: {
-                opacity: 1,
-                y: "0px",
-                transition: {
-                    duration: 0.5,
-                    delay: 0,
-                },
-            }
-        }}
-        initial="initial"
-        animate="final"
-        >
-                <Header>
-                    Вы можете:
-                </Header>
-                <RightGrid>
-                {
-                    gridContent.map(item =>
-                    <GridItem key={item.text}>
-                        <GridImageBg>
-                            <GridImage src={item.src}></GridImage>
-                        </GridImageBg>
-                        <GridItemText>
-                            {item.text}
-                        </GridItemText>
-                    </GridItem>
-                )
-                }
-                </RightGrid> 
-        </RightContent>
+                    <Header>
+                        Вы можете:
+                    </Header>
+                    <RightGrid>
+                    {
+                        gridContent.map(item =>
+                        <GridItem key={item.text}>
+                            <GridImageBg>
+                                <GridImage src={item.src}></GridImage>
+                            </GridImageBg>
+                            <GridItemText>
+                                {item.text}
+                            </GridItemText>
+                        </GridItem>
+                    )
+                    }
+                    </RightGrid> 
+            </RightContent>
+
     </StyledContainer>) 
 }
