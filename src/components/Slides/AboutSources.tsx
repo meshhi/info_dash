@@ -108,7 +108,7 @@ export const AboutSources: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContentContainer>
+            {/* <ContentContainer> */}
                 <Header>
                     Что делать в разделах системы
                 </Header>
@@ -138,7 +138,7 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                         ></StyledIFrame>
                     </ContentVideo>
                 </Content>
-            </ContentContainer>
+            {/* </ContentContainer> */}
         </StyledContainer>
     )
 }

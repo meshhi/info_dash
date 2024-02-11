@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { BrowserRouter, HashRouter, Route, Routes, useLocation } from 'react-router-dom'
@@ -36,7 +36,6 @@ const RoutesWithAnimation = () => {
     </Routes>
   );
 }
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

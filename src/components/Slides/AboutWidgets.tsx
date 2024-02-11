@@ -128,7 +128,7 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContentContainer>
+            {/* <ContentContainer> */}
                 <Content>
                     <ContentLeft>
                         <Header>
@@ -173,7 +173,7 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                     Вам сразу доступны примеры моделей, виджетов и дашбордов – это специально. Мы их создали, чтобы вы могли посмотреть готовые. Но вы смело создавайте свои!
                 </ContentComment>
 
-            </ContentContainer>
+            {/* </ContentContainer> */}
         </StyledContainer>
     )
 }

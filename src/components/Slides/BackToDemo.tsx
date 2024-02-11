@@ -121,7 +121,7 @@ export const BackToDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContentContainer>
+            {/* <ContentContainer> */}
                 <Header>Как войти в демо версию, если вышли</Header>
                 <TextContent>Демо-версия соединена с личным кабинетом на сайте AW BI – analyticworkspace.ru. Мы это сделали штатными средствами системы – так и вы сможете встроить нашу BI в свой ИТ-ландшафт.</TextContent>
                 <Cards>
@@ -133,7 +133,7 @@ export const BackToDemo: FC<PropsWithChildren> = () => {
                         </Card>)
                     }
                 </Cards>
-            </ContentContainer>
+            {/* </ContentContainer> */}
         </StyledContainer>
         )
     }

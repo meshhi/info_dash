@@ -133,7 +133,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContenContainer>
+            {/* <ContenContainer> */}
 
                 <LeftContent>
                     <Header>
@@ -194,7 +194,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                     ? aw_briefly
                     : "aw_briefly.png"
                 }></AWImage>
-            </ContenContainer>
+            {/* </ContenContainer> */}
 
 
         </StyledContainer>

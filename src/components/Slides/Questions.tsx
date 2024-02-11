@@ -181,7 +181,7 @@ export const Questions: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContenContainer>
+            {/* <ContenContainer> */}
                 <Header>Где задавать вопросы и учиться?</Header>
                 <Grid>
                     {
@@ -196,7 +196,7 @@ export const Questions: FC<PropsWithChildren> = () => {
                 <Comment>
                 А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – Data Driven культура (ссылка: https://t.me/awbi_ru). Подписывайтесь.
                 </Comment>
-            </ContenContainer>
+            {/* </ContenContainer> */}
         </StyledContainer>
         )
     }

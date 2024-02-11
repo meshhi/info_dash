@@ -38,13 +38,27 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
 
     const [page, setPage] = useState<number>()
     const [maxPage, setMaxPage] = useState<number>(10)
+
     
     useEffect(() => {
         setPage(Number(location.pathname.slice("/slides/".length)));
     }, [location])
+    
+    
+    const [size, setSize] = useState<string>();
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setSize("width: " + window.innerWidth + " height: " + window.innerHeight);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [])
 
     return(
         <StyledBaseContainer>
+            <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "black"}}>
+                {size}
+            </p>
             <ViewContainer>
                 <Outlet></Outlet>
             </ViewContainer>

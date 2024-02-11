@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, useEffect, useState } from "react";
 import styled from "styled-components";
 import greetings_bg from '/src/assets/greetings_bg.png'
 import greetings_tableau from '/src/assets/greetings_tableau.png'
@@ -24,12 +24,22 @@ const StyledGreetings = styled.section`
     padding-left: 105px;
     border: 2px solid #48D6E5;
     border-radius: 15px;
+
+    @media (max-width: 1600px) and (max-height: 800px) {
+        min-height: 800px;
+    }
+    
 `
 
 const Tableau = styled(motion.img)`
     position: absolute;
     right: 0;
     z-index: 1;
+
+    @media (max-width: 1600px) and (max-height: 800px) {
+        width: 1000px;
+    }
+      
 `
 
 const TextContent = styled(motion.div)`
@@ -44,6 +54,12 @@ const Header = styled.h1`
     font-size: 60px;
     line-height: 72.61px;
     margin-bottom: 71px;
+
+    @media (max-width: 1600px) and (max-height: 800px) {
+        // font-size: 50px;
+        line-height: normal;
+        // margin-bottom: 31px;
+    }
 `
 
 const Paragraph = styled.p`
@@ -69,8 +85,20 @@ const BoldLittleParagraph = styled.span`
 export const Greetings: FC<PropsWithChildren> = () => {
     const navigate = useNavigate();
 
+    const [size, setSize] = useState<string>();
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setSize("width: " + window.innerWidth + " height: " + window.innerHeight);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [])
+
     return (
         <StyledGreetings>
+            <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "white"}}>
+                {size}
+            </p>
             <TextContent
                 variants={{
                     initial: {

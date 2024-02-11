@@ -41,6 +41,16 @@ const LeftContent = styled(motion.div)`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    overflow: scroll;
+
+    @media (max-height: 724px) {
+        gap: 20px;
+    }
+
+    @media (max-width: 1080px) {
+        justify-content: center;
+        gap: 2rem;
+    }
 `
 
 const Header = styled.h1`
@@ -60,6 +70,24 @@ const Text = styled.p`
 `
 
 const LeftImage = styled.img`
+    @media (max-width: 1080px) {
+        display: none;
+    }
+
+    @media (max-height: 800px) and (max-width: 1280px){
+        max-height: 200px;
+        width: 300px;
+    }
+
+    @media (max-height: 1200px) and (max-width: 1600px) {
+        max-height: 300px;
+        width: 400px;
+    }
+
+    @media (min-width: 1601px) {
+        max-height: 400px;
+        width: 500px;
+    }
 
 `
 
@@ -75,6 +103,7 @@ const RightContent = styled(motion.div)`
     : "can_right.png"});
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: scroll;
 `
 
 const RightGrid = styled.div`
@@ -83,6 +112,12 @@ const RightGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 33px;
+    overflow: scroll;
+
+    @media (max-width: 1400px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
 `
 
 const GridItem = styled.div`
@@ -95,14 +130,18 @@ const GridItem = styled.div`
     padding: 6px;
     display: flex;
     gap: 20px;
+
+    @media (max-height: 800px) {
+
+    }
 `
 
 const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    min-width: 240px;
-    max-width: 240px;
+    min-width: 190px;
+    max-width: 190px;
     max-height:188px;
     height: 100%;
     background-color: #E3EAEF;

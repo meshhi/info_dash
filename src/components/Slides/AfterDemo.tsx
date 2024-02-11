@@ -161,7 +161,7 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            <ContenContainer>
+            {/* <ContenContainer> */}
                 <Header>Что делать после ознакомления с демо-версией</Header>
                 <Cards>
                     {
@@ -178,7 +178,7 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
                         </Card>)
                     }
                 </Cards>
-            </ContenContainer>
+            {/* </ContenContainer> */}
             </StyledContainer>
         )
     }
