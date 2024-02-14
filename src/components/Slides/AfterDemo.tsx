@@ -38,6 +38,10 @@ const TextContent = styled.p`
     // margin-bottom: 55px;
 
     @media (max-width: 1200px) {
+        font-size: 12px;
+    }
+
+    @media (max-width: 1450px) {
         font-size: 16px;
     }
 `
@@ -51,7 +55,7 @@ const AdaptiveText = styled.p`
 
 const AdaptiveTextBottom = styled.p`
     margin-top: 16px;
-    @media (max-width: 1400px) and (max-height: 900px) {
+    @media (max-width: 1750px) and (max-height: 900px) {
         display: none;
     }
 `
@@ -136,7 +140,6 @@ const CardImg = styled.img`
     flex: 1;
 
     @media (max-width: 1600px) and (max-height: 900px) {
-        // width: 192px;
         height: 100%;;
     }
 `

@@ -62,7 +62,7 @@ const ContentText = styled.p`
     flex-direction: column;
     font-size: 20px;
     font-weight: 300;
-    min-height: 72px;
+    min-height: 60px;
 
     @media (max-width: 1530px) {
         font-size: 16px;
