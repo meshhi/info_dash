@@ -1,10 +1,9 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import can_left from '/src/assets/can_left.svg';
+import can_left from '/src/assets/can_left.png';
 import can_right from '/src/assets/can_right.png';
 import { motion } from "framer-motion";
-
 import bg_what_can from '/src/assets/what_can_do/bg_what_can.png';
 import first from '/src/assets/what_can_do/1.png';
 import second from '/src/assets/what_can_do/2.png';
@@ -18,16 +17,6 @@ const StyledContainer = styled.section`
     justify-content: space-between;
     align-items: center;
     gap: 40px;
-`
-
-const ContenContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
 `
 
 const LeftContent = styled(motion.div)`
@@ -59,6 +48,11 @@ const Header = styled.h1`
     text-align: start;
     padding-inline: 10px;
     font-weight: 500;
+
+    @media (max-width: 1350px) {
+        font-size: 20px;
+        margin-bottom: 3px;
+    }
 `
 
 const Text = styled.p`
@@ -67,28 +61,24 @@ const Text = styled.p`
     text-align: start;
     padding-inline: 10px;
     font-weight: 300;
+
+    @media (max-width: 1350px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1600px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 12px;
+    }
 `
 
 const LeftImage = styled.img`
-    @media (max-width: 1080px) {
-        display: none;
-    }
-
-    @media (max-height: 800px) and (max-width: 1280px){
-        max-height: 200px;
-        width: 300px;
-    }
-
-    @media (max-height: 1200px) and (max-width: 1600px) {
-        max-height: 300px;
-        width: 400px;
-    }
-
-    @media (min-width: 1601px) {
-        max-height: 400px;
-        width: 500px;
-    }
-
+    width: 100%;
+    height: 100%;
+    max-height: 440px;
 `
 
 const RightContent = styled(motion.div)`
@@ -103,7 +93,7 @@ const RightContent = styled(motion.div)`
     : "can_right.png"});
     background-repeat: no-repeat;
     background-size: cover;
-    overflow: scroll;
+    overflow: hidden;
 `
 
 const RightGrid = styled.div`
@@ -112,9 +102,13 @@ const RightGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 33px;
-    overflow: scroll;
+    overflow: hidden;
 
     @media (max-width: 1400px) {
+        gap: 15px;
+    }
+
+    @media (max-width: 1150px) {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(5, 1fr);
     }
@@ -123,16 +117,24 @@ const RightGrid = styled.div`
 const GridItem = styled.div`
     background-color: #FFFFFF;
     width: 100%;
-    min-height: 170px;
-    max-height: 200px;
-    height: 100%;
+    // min-height: 170px;
+    // max-height: 200px;
+    // height: 100%;
     border-radius: 15px;
     padding: 6px;
     display: flex;
     gap: 20px;
 
-    @media (max-height: 800px) {
+    @media (max-height: 790px) and (max-width: 1150px) {
+        &:nth-child(2) {
+            display: none;
+        }
+    }
 
+    @media (max-height: 650px) and (max-width: 1150px) {
+        &:nth-child(3) {
+            display: none;
+        }
     }
 `
 
@@ -142,7 +144,6 @@ const GridImageBg = styled.div`
     : "bg_what_can.png"});
     min-width: 190px;
     max-width: 190px;
-    max-height:188px;
     height: 100%;
     background-color: #E3EAEF;
     flex-basis: 48%;
@@ -150,11 +151,28 @@ const GridImageBg = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding-block: 16px;
+
+    @media (max-width: 1600px) {
+        min-width: 150px;
+        max-width: 150px;
+    }
+
+    @media (max-width: 800px) {
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    @media (min-width: 1600px) {
+        min-width: none;
+        max-width: none;
+    }
 `
 
 const GridImage = styled.img`
     width: 60%;
-    height: 60%;
+    // height: 60%;
 `
 
 const GridItemText = styled.p`
@@ -165,11 +183,18 @@ const GridItemText = styled.p`
     align-items: center;
     justify-content: center;
     height: auto;
+    padding: 5px;
+    
+    @media (max-width: 1600px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 12px;
+    }
 `
 
 export const WhatYouCan: FC<PropsWithChildren> = () => {
-    const navigate = useNavigate();
-
     const gridContent = [
         {
             src: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
@@ -227,11 +252,13 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
                         Что можно сделать в демо-версии?
                     </Header>
                     <Text>
-                        Демо-версия полнофункциональная – у вас <br></br> не будет только админских функций (добавление пользователей, ролей, настройка рассылки <br></br>и прочее).
+                        Демо-версия полнофункциональная – у вас не будет только админских функций (добавление пользователей, ролей, настройка рассылки и прочее).
+
+                        {/* Демо-версия полнофункциональная – у вас <br></br> не будет только админских функций (добавление пользователей, ролей, настройка рассылки <br></br>и прочее). */}
                     </Text>
                         <LeftImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? can_left
-                            : "can_left.svg"
+                            : "can_left.png"
                         }>
                         </LeftImage>
             </LeftContent>
@@ -259,15 +286,15 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
                     <RightGrid>
                     {
                         gridContent.map(item =>
-                        <GridItem key={item.text}>
-                            <GridImageBg>
-                                <GridImage src={item.src}></GridImage>
-                            </GridImageBg>
-                            <GridItemText>
-                                {item.text}
-                            </GridItemText>
-                        </GridItem>
-                    )
+                            <GridItem key={item.text}>
+                                <GridImageBg>
+                                    <GridImage src={item.src}></GridImage>
+                                </GridImageBg>
+                                <GridItemText>
+                                    {item.text}
+                                </GridItemText>
+                            </GridItem>
+                        )
                     }
                     </RightGrid> 
             </RightContent>
