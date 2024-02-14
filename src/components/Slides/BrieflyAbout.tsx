@@ -26,25 +26,27 @@ const StyledContainer = styled(motion.section)`
 const GraphicContainer = styled.div`
     position: absolute;
     width: 100%;
-    hegiht: 100%;
     bottom: 0;
 
-    @media (max-height: 900px) {
-        height: 700px;
-    }
+    height: 300px;
 
-    @media (max-width: 1600px) {
-        width: 1550px;
-    }
+    // @media (max-height: 900px) {
+    //     height: 700px;
+    // }
 
-    @media (min-width: 1601px) {
-        width: 1800px;
-    }
+    // @media (max-width: 1600px) {
+    //     width: 1550px;
+    // }
+
+    // @media (min-width: 1601px) {
+    //     width: 1800px;
+    // }
 `
 
 const LeftContent = styled.article`
     color: black;
     padding: 80px 50px;
+    height: 100%;
 
     @media (max-height: 800px) {
         padding: 50px 50px;
@@ -78,6 +80,7 @@ const CardsContent = styled.div`
     left: 50px;
     bottom: 48px;
     color: black;
+    height: 100%;
 
     @media (max-height: 900px) {
         bottom: 5px;
@@ -98,6 +101,7 @@ const LinkCard = styled.div`
     justify-content: flex-start;
     align-items: center;
     position: relative;
+    height: 25%;
 `
 
 const AWImageContainer = styled.div`
@@ -109,6 +113,7 @@ const AWImageContainer = styled.div`
     : "aw_briefly.png"});
     background-position: 0 0;
     background-repeat: no-repeat;
+    height: 100%;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         width: 920px;
@@ -145,6 +150,7 @@ const Icon = styled.div<{ $srcImg?: string; $width?: number; $height?: number; $
     bottom: 30px;
     right: ${props => props.$right ? props.$right : "-156px"};
     z-index: 1000;
+    height: 450%;
 `
 
 const LeftColumn = styled.div``

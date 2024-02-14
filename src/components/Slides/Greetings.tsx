@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import styled from "styled-components";
 import greetings_bg from '/src/assets/greetings_bg.png'
-import greetings_tableau from '/src/assets/greetings_tableau.png'
+import greetings_tableau_png from '/src/assets/greetings_tableau.png'
 import { RedButton } from "../UI/Buttons/Buttons";
 import greetings_tableau_svg from '/src/assets/greetings_tableau.svg'
 import { useNavigate } from "react-router-dom";
@@ -26,24 +26,27 @@ const StyledGreetings = styled.section`
     border-radius: 15px;
 
     @media (max-width: 1600px) and (max-height: 800px) {
-        min-height: 800px;
+        // min-height: 800px;
     }
     
 `
 
 const Tableau = styled(motion.img)`
+    // max-width: 1200px;
+    max-height: 100vh;
+    height: 80%;
     position: absolute;
     right: 0;
     z-index: 1;
 
     @media (max-width: 1600px) and (max-height: 800px) {
-        width: 1000px;
+        // width: 1200px;
     }
       
 `
 
 const TextContent = styled(motion.div)`
-    min-width: 647px;
+    width: 55%;
     position: relative;
     z-index: 3;
     color: inherit;
@@ -55,17 +58,26 @@ const Header = styled.h1`
     line-height: 72.61px;
     margin-bottom: 71px;
 
-    @media (max-width: 1600px) and (max-height: 800px) {
-        // font-size: 50px;
+    @media (max-width: 1350px) {
+        font-size: 40px;
         line-height: normal;
-        // margin-bottom: 31px;
+        margin-bottom: 31px;
     }
+
+    // @media (max-width: 1600px) and (max-height: 800px) {
+    //     line-height: normal;
+    // }
 `
 
 const Paragraph = styled.p`
     font-weight: 400;
     font-size: 25px;
     line-height: 30.26px;
+
+    @media (max-width: 1350px) {
+        font-size: 20px;
+        line-height: normal;
+    }
 `
 
 const LittleParagraph = styled.p`
@@ -120,6 +132,7 @@ export const Greetings: FC<PropsWithChildren> = () => {
             >
                 <Header>
                     Приветствуем вас<br></br>в демо-версии <br></br>Analytic Workspace
+                    {/* Приветствуем вас в демо-версии Analytic Workspace */}
                 </Header>
                 <Paragraph style={{ "marginBottom": "20px" }}>
                     Это навигационный дашборд, который <br></br>тоже сделан на AW BI.
@@ -140,8 +153,8 @@ export const Greetings: FC<PropsWithChildren> = () => {
                 </LittleParagraph>
             </TextContent>
             <Tableau src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                ? greetings_tableau_svg
-                : "greetings_tableau.svg"
+                ? greetings_tableau_png
+                : "greetings_tableau.png"
             }
             variants={{
                 initial: {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { BrowserRouter, HashRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, HashRouter, MemoryRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { Greetings } from './components/Slides/Greetings.tsx'
 import { WhatYouCan } from './components/Slides/WhatYouCan.tsx'
 import { BaseContainer } from './components/Slides/BaseContainer.tsx'
@@ -39,10 +39,12 @@ const RoutesWithAnimation = () => {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <HashRouter>
+    <MemoryRouter>
       <AnimatePresence>
+        {/* <div style={{"color": "black"}}>ghah</div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/d9joPLRULeA?si=U3Ts9cZH24w-wXTJ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
         <RoutesWithAnimation></RoutesWithAnimation>
       </AnimatePresence>
-    </HashRouter>
+    </MemoryRouter>
   </React.StrictMode>,
 )
