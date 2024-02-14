@@ -78,7 +78,8 @@ const Text = styled.p`
 const LeftImage = styled.img`
     width: 100%;
     height: 100%;
-    max-height: 440px;
+    max-height: 340px;
+    max-width: 440px;
 `
 
 const RightContent = styled(motion.div)`
@@ -117,33 +118,36 @@ const RightGrid = styled.div`
 const GridItem = styled.div`
     background-color: #FFFFFF;
     width: 100%;
-    // min-height: 170px;
-    // max-height: 200px;
-    // height: 100%;
     border-radius: 15px;
     padding: 6px;
     display: flex;
     gap: 20px;
-
-    @media (max-height: 790px) and (max-width: 1150px) {
-        &:nth-child(2) {
+    
+    @media (max-height: 750px) {
+        &:nth-child(4) {
             display: none;
         }
     }
 
-    @media (max-height: 650px) and (max-width: 1150px) {
-        &:nth-child(3) {
+    @media (max-height: 860px) and (max-width: 1150px) {
+        &:nth-child(5) {
+            display: none;
+        }
+        &:nth-child(4) {
             display: none;
         }
     }
+
 `
 
 const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    min-width: 190px;
-    max-width: 190px;
+    min-width: 150px;
+    max-width: 150px;
+    min-height: 150px;
+    max-height: 150px;
     height: 100%;
     background-color: #E3EAEF;
     flex-basis: 48%;
@@ -157,22 +161,18 @@ const GridImageBg = styled.div`
     @media (max-width: 1600px) {
         min-width: 150px;
         max-width: 150px;
+        min-height: 150px;
     }
 
     @media (max-width: 800px) {
         min-width: 100px;
         max-width: 100px;
-    }
-
-    @media (min-width: 1600px) {
-        min-width: none;
-        max-width: none;
+        min-height: 100px;
     }
 `
 
 const GridImage = styled.img`
-    width: 60%;
-    // height: 60%;
+    width: 80%;
 `
 
 const GridItemText = styled.p`
@@ -253,8 +253,6 @@ export const WhatYouCan: FC<PropsWithChildren> = () => {
                     </Header>
                     <Text>
                         Демо-версия полнофункциональная – у вас не будет только админских функций (добавление пользователей, ролей, настройка рассылки и прочее).
-
-                        {/* Демо-версия полнофункциональная – у вас <br></br> не будет только админских функций (добавление пользователей, ролей, настройка рассылки <br></br>и прочее). */}
                     </Text>
                         <LeftImage src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                             ? can_left
