@@ -74,6 +74,10 @@ const ContentText = styled.p`
     overflow-wrap: break-word;
     white-space: normal;
     word-wrap: break-word;
+
+    @media (max-width: 1200px) {
+        font-size: 16px;
+    }
 `
 
 
@@ -86,6 +90,10 @@ const ContentTextWithLine = styled.span`
     @media (max-width: 1200px) {
         margin-top: 20px;
         margin-bottom: 15px;
+    }
+
+    @media (max-width: 850px) {
+        display: none;
     }
 `
 
