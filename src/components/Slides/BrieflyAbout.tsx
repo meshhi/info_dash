@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, forwardRef, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_briefly from "/src/assets/briefly_about/bg_briefly.png"
@@ -7,6 +7,7 @@ import arrow_top_briefly from "/src/assets/briefly_about/arrow_top_briefly.svg"
 import arrow_top_center_briefly from "/src/assets/briefly_about/arrow_top_center_briefly.svg"
 import arrow_bottom_center_briefly from "/src/assets/briefly_about/arrow_bottom_center_briefly.svg"
 import arrow_bottom_briefly from "/src/assets/briefly_about/arrow_bottom_briefly.svg"
+import LeaderLine from 'leader-line-new';
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -21,26 +22,6 @@ const StyledContainer = styled(motion.section)`
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
-`
-
-const GraphicContainer = styled.div`
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-
-    height: 300px;
-
-    // @media (max-height: 900px) {
-    //     height: 700px;
-    // }
-
-    // @media (max-width: 1600px) {
-    //     width: 1550px;
-    // }
-
-    // @media (min-width: 1601px) {
-    //     width: 1800px;
-    // }
 `
 
 const LeftContent = styled.article`
@@ -75,12 +56,34 @@ const Text = styled.p`
     }
 `
 
+const GraphicContainer = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    height: 100%;
+
+    // @media (max-height: 900px) {
+    //     height: 700px;
+    // }
+
+    // @media (max-width: 1600px) {
+    //     width: 1550px;
+    // }
+
+    // @media (min-width: 1601px) {
+    //     width: 1800px;
+    // }
+`
+
 const CardsContent = styled.div`
     position: absolute;
     left: 50px;
     bottom: 48px;
     color: black;
-    height: 100%;
+    height: 40%;
+    min-height: 250px;
+    width: 25%;
 
     @media (max-height: 900px) {
         bottom: 5px;
@@ -90,8 +93,8 @@ const CardsContent = styled.div`
 const LinkCard = styled.div`
     --_height: 69px;
     height: var(--_height);
-    min-width: 456px;
-    max-width: 456px;
+    // min-width: 456px;
+    // max-width: 456px;
     padding: 22px 25px 23px;
     margin-bottom: 20px;
     border: 1px solid #789BB9;
@@ -101,62 +104,116 @@ const LinkCard = styled.div`
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    height: 25%;
+    height: 15%;
+    width: 100%;
 `
 
 const AWImageContainer = styled.div`
     position: absolute;
-    right: 0;
+    // right: 0;
     bottom: 0;
+    right: 0;
+    // top: 0;
+    // left: 600px;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? aw_briefly
     : "aw_briefly.png"});
-    background-position: 0 0;
+    // background-position: 0 0;
+    // background-size: cover;
     background-repeat: no-repeat;
+    width: 64%;
     height: 100%;
-
-    @media (max-width: 1600px) and (max-height: 900px) {
-        width: 920px;
-        height: 740px;
-    }
-
-    @media (max-width: 1600px) and (min-height: 901px) {
-        width: 920px;
-        height: 790px;
-    }
-
-    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 500px) and (max-height: 900px){
-        width: 1170px;
-        height: 740px;
-    }
-
-    @media (min-width: 1601px) and (max-width: 2000px) and (min-height: 901px) and (max-height: 1200px){
-        width: 1170px;
-        height: 790px;
-    }
-`
-
-const Icon = styled.div<{ $srcImg?: string; $width?: number; $height?: number; $margin?: string; $backgroundColor?: string; $right?: string;}>`
-    width: ${props => props.$width ? props.$width + "px" : "50px"};
-    height: ${props => props.$height ? props.$height + "px" : "50px"};
-    mask-image: url(${props => props.$srcImg});
-    mask-position: center;
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    background-color: ${props => props.$backgroundColor ? `${props.$backgroundColor}` : "var(--smooth-grey)"};
-    cursor: pointer;
-    ${props => props.$margin ? `margin: ${props.$margin};` : ""}
-    position: absolute;
-    bottom: 30px;
-    right: ${props => props.$right ? props.$right : "-156px"};
-    z-index: 1000;
-    height: 450%;
 `
 
 const LeftColumn = styled.div``
 const RightColumn = styled.div``
 
+
 export const BrieflyAbout: FC<PropsWithChildren> = () => {
+    const startRef1 = useRef();
+    const startRef2 = useRef();
+    const startRef3 = useRef();
+    const startRef4 = useRef();
+    const endRef = useRef();
+
+    useEffect(() => {
+        const line1 = new LeaderLine(
+            startRef1.current,   LeaderLine.pointAnchor(endRef.current, {
+                x: 40,
+                y: 115,
+              }),
+            {
+                startSocketGravity: 0, 
+                endSocketGravity: 120,
+                color: '#789BB9',
+                path: 'grid', 
+                startSocket: 'right', 
+                endSocket: 'left', 
+                startPlug: 'disc',
+                size: 1,
+            }
+        );
+
+        const line2 = new LeaderLine(
+            startRef2.current, LeaderLine.pointAnchor(endRef.current, {
+                x: 40,
+                y: 160,
+              }),
+              {
+                startSocketGravity: 0, 
+                endSocketGravity: 80,
+                color: '#789BB9',
+                path: 'grid', 
+                startSocket: 'right', 
+                endSocket: 'left', 
+                startPlug: 'disc',
+                size: 1,
+            }
+        );
+
+        const line3 = new LeaderLine(
+            startRef3.current, LeaderLine.pointAnchor(endRef.current, {
+                x: 40,
+                y: 205,
+              }),
+              {
+                startSocketGravity: 0, 
+                endSocketGravity: 40,
+                color: '#789BB9',
+                path: 'grid', 
+                startSocket: 'right', 
+                endSocket: 'left', 
+                startPlug: 'disc',
+                size: 1,
+            }
+        );
+
+        const line4 = new LeaderLine(
+            startRef4.current, LeaderLine.pointAnchor(endRef.current, {
+                x: 40,
+                y: 250,
+                width: 0,
+                height: 0,
+              }),
+              {
+                startSocketGravity: 0, 
+                endSocketGravity: 0,
+                color: '#789BB9',
+                path: 'grid', 
+                startSocket: 'right', 
+                endSocket: 'left', 
+                startPlug: 'disc',
+                size: 1,
+            }
+        );
+        
+        return () => {
+            line1.remove();
+            line2.remove();
+            line3.remove();
+            line4.remove();
+        }
+    }, [])
     return (
         <StyledContainer
             variants={{
@@ -178,6 +235,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             <LeftContent>
                 <Header>
                     Кратко про разделы<br></br> системы
+
                 </Header>
                 <Text>
                     Не удивляйтесь, что у нас всего 4 основных<br></br> пункта в меню – их хватит, чтобы сделать<br></br> потрясающую отчётность.
@@ -188,48 +246,17 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             </LeftContent>
             <GraphicContainer>
                 <CardsContent>
-                    <LinkCard>Источники данных
-                        <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                            ? arrow_top_briefly
-                            : "arrow_top_briefly.svg"}
-                            $width={157}
-                            $height={312}
-                            $backgroundColor="#789BB9"
-                            $right={"-154px"}
-                            ></Icon>
+                    <LinkCard ref={startRef1}>Источники данных
                     </LinkCard>
-                    <LinkCard>Модели
-                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                            ? arrow_top_center_briefly
-                            : "arrow_top_center_briefly.svg"}
-                            $width={157}
-                            $height={358}
-                            $backgroundColor="#789BB9"
-                            $right={"-155px"}
-                            ></Icon>
+                    <LinkCard ref={startRef2}>Модели
                     </LinkCard>
-                    <LinkCard>Виджеты
-                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                            ? arrow_bottom_center_briefly
-                            : "arrow_bottom_center_briefly.svg"}
-                            $width={177}
-                            $height={400}
-                            $backgroundColor="#789BB9"
-                            $right={"-165px"}
-                            ></Icon>
+                    <LinkCard ref={startRef3}>Виджеты
                     </LinkCard>
-                    <LinkCard>Информационные панели
-                    <Icon $srcImg={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                            ? arrow_bottom_briefly
-                            : "arrow_bottom_briefly.svg"}
-                            $width={170}
-                            $height={446}
-                            $backgroundColor="#789BB9"
-                            $right={"-164px"}
-                            ></Icon>
+                    <LinkCard ref={startRef4}>Информационные панели
                     </LinkCard>
                 </CardsContent>
-                <AWImageContainer>
+                <AWImageContainer
+                ref={endRef}>
                 </AWImageContainer>
             </GraphicContainer>
         </StyledContainer>
