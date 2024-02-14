@@ -27,11 +27,58 @@ a {
 }
 
 .leader-line {
-	animation: appearance .2s ease-in-out;
+	opacity: 0;
 }
 
 .card-arrow {
-	animation: appearance .7s ease-in-out;
+	opacity: 0;
+}
+
+.leader-line:nth-child(4) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	
+} 
+.card-arrow:nth-child(1) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 500ms;
+}
+
+.leader-line:nth-child(5) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 500ms;
+	
+} 
+.card-arrow:nth-child(2) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1000ms;
+}
+
+.leader-line:nth-child(6) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1000ms;
+	
+} 
+.card-arrow:nth-child(3) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1500ms;
+}
+
+.leader-line:nth-child(7) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1500ms;
+	
+} 
+.card-arrow:nth-child(4) {
+	animation: appearance .3s ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 2000ms;
 }
 
 @keyframes appearance {

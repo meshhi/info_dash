@@ -108,8 +108,9 @@ const ContentComment = styled.p`
 `
 
 const ContentTextWithLine = styled.span`
-    margin-top: 44px;
+    margin-top: 34px;
     margin-bottom: 33px;
+    min-height: 44px;
     font-size: 16px;
     text-decoration: underline;
     text-wrap: pretty;

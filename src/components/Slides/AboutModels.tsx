@@ -93,7 +93,7 @@ const ContentTextWithLine = styled.span`
         margin-bottom: 15px;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 850px) or (max-height: 755px){
         display: none;
     }
 `
