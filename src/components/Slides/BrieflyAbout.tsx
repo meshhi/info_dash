@@ -8,6 +8,7 @@ import arrow_top_center_briefly from "/src/assets/briefly_about/arrow_top_center
 import arrow_bottom_center_briefly from "/src/assets/briefly_about/arrow_bottom_center_briefly.svg"
 import arrow_bottom_briefly from "/src/assets/briefly_about/arrow_bottom_briefly.svg"
 import LeaderLine from 'leader-line-new';
+import { useLocation } from "react-router-dom";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -128,6 +129,71 @@ const AWImageContainer = styled.div`
 const LeftColumn = styled.div``
 const RightColumn = styled.div``
 
+function addArc(pathData, radius) {
+    var reL = /^L ?([\d.\-+]+) ([\d.\-+]+) ?/,
+      newPathData, curXY, curDir, newXY, newDir,
+      sweepFlag, arcXY, arcStartXY;
+  
+    function getDir(xy1, xy2) {
+      if (xy1.x === xy2.x) {
+        return xy1.y < xy2.y ? 'd' : 'u';
+      } else if (xy1.y === xy2.y) {
+        return xy1.x < xy2.x ? 'r' : 'l';
+      }
+      throw new Error('Invalid data');
+    }
+  
+    function captureXY(s, x, y) {
+      newXY = {x: +x, y: +y};
+      return '';
+    }
+  
+    function offsetXY(xy, dir, offsetLen, toBack) {
+      return {
+        x: xy.x + (dir === 'l' ? -offsetLen : dir === 'r' ? offsetLen : 0) * (toBack ? -1 : 1),
+        y: xy.y + (dir === 'u' ? -offsetLen : dir === 'd' ? offsetLen : 0) * (toBack ? -1 : 1)
+      };
+    }
+  
+    pathData = pathData.trim().replace(/,/g, ' ').replace(/\s+/g, ' ')
+      .replace(/^M ?([\d.\-+]+) ([\d.\-+]+) ?/, function(s, x, y) {
+        curXY = {x: +x, y: +y};
+        return '';
+      });
+    if (!curXY) { throw new Error('Invalid data'); }
+    newPathData = 'M' + curXY.x + ' ' + curXY.y;
+  
+    while (pathData) {
+      newXY = null;
+      pathData = pathData.replace(reL, captureXY);
+      if (!newXY) { throw new Error('Invalid data'); }
+  
+      newDir = getDir(curXY, newXY);
+      if (curDir) {
+        arcStartXY = offsetXY(curXY, curDir, radius, true);
+        arcXY = offsetXY(curXY, newDir, radius);
+        sweepFlag =
+          curDir === 'l' && newDir === 'u' ? '1' :
+          curDir === 'l' && newDir === 'd' ? '0' :
+          curDir === 'r' && newDir === 'u' ? '0' :
+          curDir === 'r' && newDir === 'd' ? '1' :
+          curDir === 'u' && newDir === 'l' ? '0' :
+          curDir === 'u' && newDir === 'r' ? '1' :
+          curDir === 'd' && newDir === 'l' ? '1' :
+          curDir === 'd' && newDir === 'r' ? '0' :
+          null;
+        if (!sweepFlag) { throw new Error('Invalid data'); }
+        newPathData += 'L' + arcStartXY.x + ' ' + arcStartXY.y +
+          'A ' + radius + ' ' + radius + ' 0 0 ' + sweepFlag + ' ' + arcXY.x + ' ' + arcXY.y;
+      }
+  
+      curXY = newXY;
+      curDir = newDir;
+    }
+    newPathData += 'L' + curXY.x + ' ' + curXY.y;
+    return newPathData;
+}
+
 
 export const BrieflyAbout: FC<PropsWithChildren> = () => {
     const startRef1 = useRef();
@@ -141,10 +207,10 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             startRef1.current,   LeaderLine.pointAnchor(endRef.current, {
                 x: 40,
                 y: 115,
-              }),
+                }),
             {
-                startSocketGravity: 0, 
-                endSocketGravity: 120,
+                startSocketGravity: 0,
+                endSocketGravity: 150,
                 color: '#789BB9',
                 path: 'grid', 
                 startSocket: 'right', 
@@ -158,10 +224,10 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             startRef2.current, LeaderLine.pointAnchor(endRef.current, {
                 x: 40,
                 y: 160,
-              }),
-              {
-                startSocketGravity: 0, 
-                endSocketGravity: 80,
+                }),
+                {
+                startSocketGravity: 0,
+                endSocketGravity: 100,
                 color: '#789BB9',
                 path: 'grid', 
                 startSocket: 'right', 
@@ -175,10 +241,10 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             startRef3.current, LeaderLine.pointAnchor(endRef.current, {
                 x: 40,
                 y: 205,
-              }),
-              {
-                startSocketGravity: 0, 
-                endSocketGravity: 40,
+                }),
+                {
+                startSocketGravity: 0,
+                endSocketGravity: 50,
                 color: '#789BB9',
                 path: 'grid', 
                 startSocket: 'right', 
@@ -194,9 +260,9 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                 y: 250,
                 width: 0,
                 height: 0,
-              }),
-              {
-                startSocketGravity: 0, 
+                }),
+                {
+                startSocketGravity: 0,
                 endSocketGravity: 0,
                 color: '#789BB9',
                 path: 'grid', 
@@ -206,12 +272,15 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                 size: 1,
             }
         );
+        // document.querySelectorAll('.leader-line').forEach(line => line.style.opacity = 1)
+
         
         return () => {
             line1.remove();
             line2.remove();
             line3.remove();
             line4.remove();
+            // document.querySelectorAll('.leader-line').forEach(line => line.remove())
         }
     }, [])
     return (

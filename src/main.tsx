@@ -38,7 +38,7 @@ const RoutesWithAnimation = () => {
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <MemoryRouter>
       <AnimatePresence>
         {/* <div style={{"color": "black"}}>ghah</div>
@@ -46,5 +46,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <RoutesWithAnimation></RoutesWithAnimation>
       </AnimatePresence>
     </MemoryRouter>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
