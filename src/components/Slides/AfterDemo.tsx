@@ -95,8 +95,12 @@ const Card = styled.div`
     }
 
     @media (min-width: 1600px) {
-        min-height: 290px;
+        // min-height: 290px;
         max-height: 290px;
+    }
+
+    @media (max-height: 857px) {
+        max-height: 100px;
     }
 `
 
@@ -111,16 +115,28 @@ const CardContent = styled.div`
     @media (max-width: 1600px) and (max-height: 900px) {
         margin-left: 20px;
     }
+
+    @media max-height: 900px) {
+        height: 190px;
+    }
+
+    @media max-height: 775px) {
+        height: 150px;
+    }
 `
 
 const CardImg = styled.img`
-    width: 292px;
-    height: 256px;
+    min-width: 150px;
+    max-width: 300px;
+    min-height: 150px;
+    width: 100%;
+    height: 100%;
     border-radius: 15px;
     background-color: grey;
+    flex: 1;
 
     @media (max-width: 1600px) and (max-height: 900px) {
-        width: 192px;
+        // width: 192px;
         height: 100%;;
     }
 `
@@ -129,10 +145,16 @@ const CardText = styled.p`
     font-weight: 300;
     text-align: start;
     padding-block: 10px;
+    flex: 2;
+    min-width: 250px;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         font-size: 16px;
         height: 100px;
+    }
+
+    @media (max-width: 1600px) {
+        font-size: 16px;
     }
 `
 

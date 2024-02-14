@@ -42,6 +42,14 @@ const Header = styled.h1`
     @media (max-width: 800px)  {
         font-size: 30px;
     }
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 30px;
+    }
+
+    @media (max-width: 1120px) and (max-height: 650px) {
+        font-size: 20px;
+    }
 `
 
 const TextContent = styled.p`
@@ -54,6 +62,14 @@ const TextContent = styled.p`
     }
 
     @media (max-width: 800px)  {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1120px) and (max-height: 650px) {
         font-size: 16px;
     }
 `
@@ -96,11 +112,11 @@ const Card = styled.div`
 `
 
 const CardImg = styled.img`
-    min-width: 350px;
+    // min-width: 350px;
     height: 314px;
     border-radius: 15px;
     background-color: grey;
-    border: 2px solid #48D6E5;
+    border: 1px solid #48D6E55C;
     border-radius: 15px;
     background-color: #EDF3FA;
 
@@ -108,11 +124,24 @@ const CardImg = styled.img`
         width: 350px;
         height: 244px;
     }
+
+    @media (max-width: 1120px) and (max-height: 650px) {
+        width: 250px;
+        height: 194px;
+    }
 `
 const CardText = styled.p`
     font-size: 20px;
     font-weight: 300;
     text-align: start;
+
+    @media (max-width: 1600px) and (max-height: 900px) {
+        font-size: 16px;
+    }
+
+    @media (max-width: 1120px) and (max-height: 650px) {
+        font-size: 12px;
+    }
 `
 
 const BoldLink = styled.a`
@@ -165,19 +194,17 @@ export const BackToDemo: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-            {/* <ContentContainer> */}
-                <Header>Как войти в демо версию, если вышли</Header>
-                <TextContent>Демо-версия соединена с личным кабинетом на сайте AW BI – analyticworkspace.ru. Мы это сделали штатными средствами системы – так и вы сможете встроить нашу BI в свой ИТ-ландшафт.</TextContent>
-                <Cards>
-                    {
-                        cards.map(card => 
-                        <Card key={card.id}>
-                            <CardImg src={card.img}></CardImg>
-                            <CardText>{card.text()}</CardText>
-                        </Card>)
-                    }
-                </Cards>
-            {/* </ContentContainer> */}
+            <Header>Как войти в демо версию, если вышли</Header>
+            <TextContent>Демо-версия соединена с личным кабинетом на сайте AW BI – analyticworkspace.ru. Мы это сделали штатными средствами системы – так и вы сможете встроить нашу BI в свой ИТ-ландшафт.</TextContent>
+            <Cards>
+                {
+                    cards.map(card => 
+                    <Card key={card.id}>
+                        <CardImg src={card.img}></CardImg>
+                        <CardText>{card.text()}</CardText>
+                    </Card>)
+                }
+            </Cards>
         </StyledContainer>
         )
     }

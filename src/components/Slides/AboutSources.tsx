@@ -19,13 +19,18 @@ const StyledContainer = styled(motion.section)`
     padding: 88px 50px;
     display: flex;
     flex-direction: column;
-    overflow: scroll;
+    overflow: hidden;
 `
 
 const Header = styled.h1`
     font-size: 60px;
     font-weight: 500;
     margin-bottom: 85px;
+
+    @media (max-width: 1090px) {
+        font-size: 30px;
+        margin-bottom: 65px;
+    }
 
     @media (max-height: 900px) {
         margin-bottom: 50px;
@@ -57,8 +62,8 @@ const ContentVideo = styled.div`
     overflow: hidden;
 
     @media (max-width: 1300px) and (max-height: 750px) {
-        width: 400px;
-        height: 200px;
+        width: 100%;
+        height: 150px;
     }
 
     @media (max-width: 1300px) and (max-height: 900px) {
@@ -73,7 +78,16 @@ const ContentVideo = styled.div`
 
     @media (min-width: 1601px) {
         min-width: 50%;
-        min-height: 500px;
+        min-height: 400px;
+    }
+
+
+    @media (max-width: 1260px) {
+        width: 50%;
+    }
+
+    @media (max-height: 780px) {
+        height: 70%;
     }
 `
 
@@ -93,6 +107,17 @@ const Text = styled.p`
     font-size: 20px;
     font-weight: 300;
     margin-bottom: 38px;
+    white-space: nowrap;
+
+    @media (max-width: 1090px) {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    @media (max-height: 900px) {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 `
 
 const TextWithLine = styled.span`
@@ -114,6 +139,10 @@ const Line = styled.img`
 
     @media (max-width: 1400px) and (max-height: 900px) {
         width: 500px;
+    }
+
+    @media (max-width: 1150px) {
+        width: 110%;
     }
 `
 

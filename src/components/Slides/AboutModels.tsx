@@ -18,6 +18,7 @@ const StyledContainer = styled(motion.section)`
     padding: 88px 50px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 
     @media (max-width: 1600px) and (max-height: 900px) {
         padding: 58px 50px;
@@ -105,6 +106,9 @@ const ContentVideo = styled.div`
     overflow: hidden;
     width: 100%;
     height: 100%;
+
+    // min-width: 500px;
+    min-height: 250px;
 `
 
 const StyledIFrame = styled.iframe`

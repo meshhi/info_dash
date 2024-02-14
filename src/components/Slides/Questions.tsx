@@ -80,8 +80,6 @@ const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    // min-width: 211px;
-    // min-height: 166px;
     background-color: #E3EAEF;
     flex-basis: 48%;
     border-radius: 15px;
@@ -92,9 +90,16 @@ const GridImageBg = styled.div`
     max-width: 211px;
     background-position: 20px center;
 
-    @media (max-width: 1600px) and (max-height: 900px) {
-        width: 211px;
-        height: 166px;
+    @media (max-width: 1600px) {
+        min-width: 150px;
+        max-width: 150px;
+        min-height: 150px;
+    }
+
+    @media (max-width: 800px) {
+        min-width: 100px;
+        max-width: 100px;
+        min-height: 100px;
     }
 `
 

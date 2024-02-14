@@ -69,6 +69,12 @@ const ContentText = styled.p`
     }
 `
 
+const AdaptiveText = styled.span`
+    @media (max-width: 1320px) or (max-height: 813px) {
+        display: none;
+    }
+`
+
 const ContentCommentWrapper = styled.div`
     position: absolute;
     bottom: 0;
@@ -156,7 +162,10 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                             Виджеты
                         </Header>
                         <ContentText>
-                        – это кирпичи, из которых создаются информационные панели (дашборды).<br></br> Виджет и сам по себе является готовым инструментом аналитики –<br></br> вы можете им поделиться с коллегами, а также выгрузить в виде файла.
+                        – это кирпичи, из которых создаются информационные панели (дашборды).<br></br> 
+                        <AdaptiveText>
+                            Виджет и сам по себе является готовым инструментом аналитики –<br></br> вы можете им поделиться с коллегами, а также выгрузить в виде файла.
+                        </AdaptiveText>
                         </ContentText>
                         <ContentTextWithLine>
                             Посмотрите краткое видео, в котором мы делаем обзор виджетов:
