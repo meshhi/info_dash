@@ -32,15 +32,20 @@ const StyledGreetings = styled.section`
 `
 
 const Tableau = styled(motion.img)`
-    // max-width: 1200px;
     max-height: 100vh;
     height: 80%;
     position: absolute;
     right: 0;
     z-index: 1;
 
-    @media (max-width: 1600px) and (max-height: 800px) {
-        // width: 1200px;
+    @media (min-width: 1600px) {
+        width: 1200px;
+        height: 100%;
+        margin-top: -100px;
+    }
+
+    @media (min-width: 1100px) {
+        margin-top: -50px;
     }
       
 `
@@ -58,7 +63,7 @@ const Header = styled.h1`
     line-height: 72.61px;
     margin-bottom: 71px;
 
-    @media (max-width: 1350px) {
+    @media (max-width: 1450px) {
         font-size: 40px;
         line-height: normal;
         margin-bottom: 31px;
@@ -85,6 +90,19 @@ const LittleParagraph = styled.p`
     font-size: 16px;
     line-height: 19.36px;
     margin-top: 50px;
+
+    @media (max-height: 770px) {
+        margin-top: 20px;
+    }
+
+    @media (max-height: 735px) {
+        display: none;
+        font-size: 12px;
+
+        & span {
+            font-size: 12px;
+        }
+    }
 `
 
 const BoldLittleParagraph = styled.span`
