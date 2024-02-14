@@ -119,11 +119,11 @@ const LinkCard = styled.div`
   width: 100%;
   overflow: hidden;
 
-  @media (max-width: 1040px) {
+  @media (max-width: 1140px) {
     width: 90%;
   }
 
-  @media (max-width: 865px) {
+  @media (max-width: 930px) {
     width: 70%;
   }
 `;
@@ -296,7 +296,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
                 }),
                 {
                     startSocketGravity: [40, 0],
-                    endSocketGravity: [-60, 0],
+                    endSocketGravity: [-70, 0],
                     color: "#789BB9",
                     path: "grid",
                     startSocket: "right",
@@ -394,10 +394,10 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             </LeftContent>
             <GraphicContainer>
                 <CardsContent>
-                    <LinkCard ref={startRef1}>Источники данных</LinkCard>
-                    <LinkCard ref={startRef2}>Модели</LinkCard>
-                    <LinkCard ref={startRef3}>Виджеты</LinkCard>
-                    <LinkCard ref={startRef4}>Информационные панели</LinkCard>
+                    <LinkCard ref={startRef1} className={"card-arrow"}>Источники данных</LinkCard>
+                    <LinkCard ref={startRef2} className={"card-arrow"}>Модели</LinkCard>
+                    <LinkCard ref={startRef3} className={"card-arrow"}>Виджеты</LinkCard>
+                    <LinkCard ref={startRef4} className={"card-arrow"}>Информационные панели</LinkCard>
                 </CardsContent>
                 <AWImageContainer ref={endRef}></AWImageContainer>
             </GraphicContainer>

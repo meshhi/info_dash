@@ -30,6 +30,10 @@ a {
 	animation: appearance .2s ease-in-out;
 }
 
+.card-arrow {
+	animation: appearance .7s ease-in-out;
+}
+
 @keyframes appearance {
 	from {
 		opacity: 0; 
