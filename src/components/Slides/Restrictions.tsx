@@ -14,26 +14,15 @@ const StyledContainer = styled.section`
     gap: 40px;
 `
 
-const ContenContainer = styled.div`
-    position: relative;
-    max-width: 1796px;
-    max-height: 850px;
-    min-width: 1796px;
-    min-height: 850px;
-    height: 100%;
-    margin: 0 auto;
-`
-
 const LeftContent = styled(motion.div)`
     height: 100%;
-    flex: 1;
     border: 2px solid #48D6E5;
     border-radius: 15px;
     background-color: #EDF3FA;
     padding: 2%;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    // justify-content: space-between;
     gap: 80px;
     align-items: center;
     overflow: hidden;
@@ -42,23 +31,27 @@ const LeftContent = styled(motion.div)`
     : "can_right.png"});
     background-repeat: no-repeat;
     background-size: cover;
-    // background-position: 100%;
 
-    // &:before {
-    //     content: "";
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     left: 0;
-    //     right: 0;
-    //     top: 0;
-    //     bottom: 0;
-    //     z-index: -1;
-    //     background-image: url(${can_right});
-    //     background-repeat: no-repeat;
-    //     background-size: cover;
-    //     background-position: 100%;
-    // }
+    @media (max-width: 1800px) {
+        gap: 40px;
+    }
+
+    @media (max-width: 1400px) {
+        gap: 20px;  
+    }
+
+    @media (max-width: 1000px) {
+        gap: 10px;  
+    }
+
+    @media (max-height: 800px) {
+        gap: 10px;
+    }
+
+    @media (max-height: 1000px) {
+        gap: 30px;
+    }
+    
 `
 
 const Header = styled.h1`
@@ -72,21 +65,28 @@ const Header = styled.h1`
         font-size: 30px;
         line-height: normal;
     }
+
+    @media (max-width: 1200px) and (max-height: 800px) {
+        font-size: 20px;
+        line-height: normal;
+    }
+
 `
 
 const TextList = styled.ol`
     color: #000000;
-    margin-left: 60px;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 30px;
     font-size: 20px;
     font-weight: 300;
+    padding-left: 5%;
 
     @media (max-width: 1600px) and (max-height: 800px) {
         font-size: 16px;
         line-height: normal;
+        gap: 20px;
     }
 
     @media (min-width: 1601px) or (min-height: 801px) {
@@ -94,6 +94,24 @@ const TextList = styled.ol`
         line-height: normal;
     }
 
+    @media (max-width: 1600px) {
+        font-size: 14px;
+        gap: 20px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 12px;
+        gap: 10px;
+    }
+
+    @media(max-height: 800px) {
+        font-size: 16px;
+        gap: 10px;
+    }
+`
+
+const TextListItem = styled.li`
+    white-space: pre-line;
 `
 
 const Text = styled.p`
@@ -102,6 +120,45 @@ const Text = styled.p`
     text-align: start;
     padding-inline: 10px;
     font-weight: 300;
+    white-space: nowrap;
+
+    @media (max-width: 1600px) {
+        font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 12px;
+    }
+`
+
+const TextRightBottom = styled(Text)`
+    font-size: 30px;
+    font-weight: 300;
+
+    @media (max-width: 1600px) {
+        font-size: 25px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 15px;
+    }
+`
+
+const StyledLink = styled.a`
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 23px;
+    margin-left: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+
+    @media (max-width: 1600px) {
+        font-size: 25px;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 15px;
+    }
 `
 
 const RightContent = styled(motion.div)`
@@ -115,54 +172,43 @@ const RightContent = styled(motion.div)`
 `
 
 const RightTopContent = styled.div`
+    color: black;
+    padding: 2%;
     border: 2px solid #48D6E5;
     border-radius: 15px;
     background-color: #EDF3FA;
-    padding: 2%;
     flex: 1;
-    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? top
-    : "top.svg"});
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: black;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? top
+    : "top.svg"});
+    background-repeat: no-repeat;
+    background-size: cover;
 `
 
 const RightBottomContent = styled.div`
+    color: white;
+    font-size: 30px;
+    padding: 2%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 2px solid #48D6E5;
     border-radius: 15px;
     background-color: #EDF3FA;
-    padding: 2%;
-    flex: 1;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bottom
     : "bottom.svg"});
     background-repeat: no-repeat;
-    color: white;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`
-
-const StyledLink = styled.a`
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 23px;
-    margin-left: 20px;
-    text-decoration: underline;
-    cursor: pointer;
+    background-size: cover;
 `
 
 export const Restrictions: FC<PropsWithChildren> = () => {
-    const navigate = useNavigate();
-
     return (
         <StyledContainer>
-            {/* <ContenContainer> */}
                 <LeftContent
                     variants={{
                         initial: {
@@ -185,9 +231,9 @@ export const Restrictions: FC<PropsWithChildren> = () => {
                         Чтобы хватило на всех, мы сделали небольшие технические ограничения в демо-версии:
                     </Header>
                     <TextList>
-                        <li>Вы сможете использовать до 5 файловых источников,<br></br> до 100 Мб каждый. Базы данных и веб-сервисы можете<br></br> подключать в любом количестве.</li>
-                        <li>Вы можете создать до 5 моделей, включая удалённые.<br></br> Мы советуем не удалять модели, а переиспользовать.</li>
-                        <li>Во время визуализации и анализа данных мы<br></br> не используем прямое подключение к вашим <br></br>источникам – все данные после трансформации<br></br> в разделе “Модели” перекладываются в аналитическую<br></br> витрину в Clickhouse. Мы ожидаем, что данные в одной <br></br>витрине будут “весить” до 524 Мб.</li>
+                        <TextListItem>Вы сможете использовать до 5 файловых источников,<br></br> до 100 Мб каждый. Базы данных и веб-сервисы можете<br></br> подключать в любом количестве.</TextListItem>
+                        <TextListItem>Вы можете создать до 5 моделей, включая удалённые.<br></br> Мы советуем не удалять модели, а переиспользовать.</TextListItem>
+                        <TextListItem>Во время визуализации и анализа данных мы<br></br> не используем прямое подключение к вашим <br></br>источникам – все данные после трансформации<br></br> в разделе “Модели” перекладываются в аналитическую<br></br> витрину в Clickhouse. Мы ожидаем, что данные в одной <br></br>витрине будут “весить” до 524 Мб.</TextListItem>
                     </TextList>
                 </LeftContent>
                 <RightContent
@@ -217,9 +263,9 @@ export const Restrictions: FC<PropsWithChildren> = () => {
                         </Text>
                     </RightTopContent>
                     <RightBottomContent>
-                        <Text style={{ "fontSize": "30px", "fontWeight": "300", "marginTop": "43px", "marginLeft": "20px" }}>
+                        <TextRightBottom>
                             Если вам нужна демо-версия <br></br> для работы на своих серверах – <br></br> напишите нам:
-                        </Text>
+                        </TextRightBottom>
                         <StyledLink 
                         href="https://t.me/awcommunity"
                         target="_blank"
@@ -228,6 +274,5 @@ export const Restrictions: FC<PropsWithChildren> = () => {
                         </StyledLink>
                     </RightBottomContent>
                 </RightContent>
-            {/* </ContenContainer> */}
         </StyledContainer>)
 }

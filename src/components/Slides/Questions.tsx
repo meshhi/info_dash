@@ -165,8 +165,6 @@ export const Questions: FC<PropsWithChildren> = () => {
                     <AdaptiveText>
                         <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
                     </AdaptiveText>
-
-
             </TextContent>
         },
         {
