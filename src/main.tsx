@@ -41,8 +41,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   // <React.StrictMode>
     <MemoryRouter>
       <AnimatePresence>
-        {/* <div style={{"color": "black"}}>ghah</div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/d9joPLRULeA?si=U3Ts9cZH24w-wXTJ&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
         <RoutesWithAnimation></RoutesWithAnimation>
       </AnimatePresence>
     </MemoryRouter>

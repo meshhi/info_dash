@@ -26,7 +26,7 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 90%;
-    gap: 40px;
+    gap: 10%;
 
     padding: 58px 50px;
 
@@ -191,12 +191,13 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                             Посмотрите краткое видео, в котором мы делаем обзор информационных панелей:
                         </ContentTextWithLine>
                         <ContentVideo>
-                            <StyledIFrame 
+                            <ImageFiller></ImageFiller>
+                            {/* <StyledIFrame 
                             src="https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK" 
                             title="AW_sources_tutorial" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                            ></StyledIFrame>
+                            ></StyledIFrame> */}
                         </ContentVideo>
                     </ContentRight>
                 </Content>

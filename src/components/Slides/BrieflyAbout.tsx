@@ -130,17 +130,12 @@ const LinkCard = styled.div`
 
 const AWImageContainer = styled.div`
   position: absolute;
-  // right: 0;
   bottom: 0;
   right: 0;
-  // top: 0;
-  // left: 600px;
   background-image: url(${!process.env.NODE_ENV ||
         process.env.NODE_ENV === "development"
         ? aw_briefly
         : "aw_briefly.png"});
-  // background-position: 0 0;
-  // background-size: cover;
   background-repeat: no-repeat;
   width: 64%;
   height: 100%;
@@ -269,7 +264,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             const line1 = new LeaderLine(
                 startRef1.current,
                 LeaderLine.pointAnchor(endRef.current, {
-                    x: 40,
+                    x: 45,
                     y: 115,
                 }),
                 {
@@ -291,7 +286,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             const line2 = new LeaderLine(
                 startRef2.current,
                 LeaderLine.pointAnchor(endRef.current, {
-                    x: 40,
+                    x: 45,
                     y: 160,
                 }),
                 {
@@ -313,7 +308,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             const line3 = new LeaderLine(
                 startRef3.current,
                 LeaderLine.pointAnchor(endRef.current, {
-                    x: 40,
+                    x: 45,
                     y: 205,
                 }),
                 {
@@ -335,7 +330,7 @@ export const BrieflyAbout: FC<PropsWithChildren> = () => {
             const line4 = new LeaderLine(
                 startRef4.current,
                 LeaderLine.pointAnchor(endRef.current, {
-                    x: 40,
+                    x: 45,
                     y: 250,
                     width: 0,
                     height: 0,

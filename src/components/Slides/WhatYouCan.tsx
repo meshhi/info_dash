@@ -61,6 +61,8 @@ const Text = styled.p`
     text-align: start;
     padding-inline: 10px;
     font-weight: 300;
+    flex: 1;
+    padding-top: 1rem;
 
     @media (max-width: 1350px) {
         font-size: 16px;
@@ -144,10 +146,10 @@ const GridImageBg = styled.div`
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? bg_what_can
     : "bg_what_can.png"});
-    min-width: 150px;
-    max-width: 150px;
-    min-height: 150px;
-    max-height: 150px;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
     height: 100%;
     background-color: #E3EAEF;
     flex-basis: 48%;
@@ -159,9 +161,9 @@ const GridImageBg = styled.div`
     padding-block: 16px;
 
     @media (max-width: 1600px) {
-        min-width: 150px;
-        max-width: 150px;
-        min-height: 150px;
+        min-width: 120px;
+        max-width: 120px;
+        min-height: 120px;
     }
 
     @media (max-width: 800px) {

@@ -58,9 +58,6 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
 
     return(
         <StyledBaseContainer>
-            {/* <p style={{"position": "absolute", "width": "200px", "height": "200px", "zIndex": 9999999, "color": "black"}}>
-                {size}
-            </p> */}
             <ViewContainer>
                 <Outlet></Outlet>
             </ViewContainer>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_sources from "/src/assets/about_sources/bg_about_sources.svg"
 import arrow_right_sources from "/src/assets/about_sources/arrow_right_sources.svg"
+import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -72,7 +73,7 @@ const ContentVideo = styled.div`
     }
 
     @media (max-width: 1600px) and (max-height: 900px) {
-        width: 600px;
+        width: 700px;
         height: 400px;
     }
 
@@ -87,7 +88,7 @@ const ContentVideo = styled.div`
     }
 
     @media (max-height: 780px) {
-        height: 70%;
+        height: 80%;
     }
 `
 
@@ -131,10 +132,10 @@ const Line = styled.img`
     bottom: -10px;
     left: 0;
 
-    width: 700px;
+    width: 750px;
 
     @media (max-width: 1600px) and (max-height: 900px) {
-        width: 600px;
+        width: 700px;
     }
 
     @media (max-width: 1400px) and (max-height: 900px) {
@@ -186,12 +187,16 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                         </TextWithLine>
                     </ContentText>
                     <ContentVideo>
-                        <StyledIFrame 
+                        <ImageFiller
+                        
+                        ></ImageFiller>
+
+                        {/* <StyledIFrame 
                         src="https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD" 
                         title="AW_sources_tutorial" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame>
+                        ></StyledIFrame> */}
                     </ContentVideo>
                 </Content>
         </StyledContainer>
