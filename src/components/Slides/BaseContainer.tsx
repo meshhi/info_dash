@@ -47,14 +47,14 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
     
     
     const [size, setSize] = useState<string>();
-    useEffect(() => {
-        const timer = setInterval(() => {
-            let sizeString = "width: " + window.innerWidth + " height: " + window.innerHeight;
-            setSize(sizeString);
-            console.log("Current window size: " + sizeString);
-        }, 1000);
-        return () => clearInterval(timer);
-    }, [])
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         let sizeString = "width: " + window.innerWidth + " height: " + window.innerHeight;
+    //         setSize(sizeString);
+    //         console.log("Current window size: " + sizeString);
+    //     }, 1000);
+    //     return () => clearInterval(timer);
+    // }, [])
 
     return(
         <StyledBaseContainer>
@@ -82,7 +82,6 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
                         }}
                     >Далее</RedButton>
                 }
-
             </Row>
         </StyledBaseContainer>)
 }

@@ -2,6 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
+import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -172,12 +173,15 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                             Посмотрите краткое видео, в котором мы делаем обзор виджетов:
                         </ContentTextWithLine>
                         <ContentVideo>
-                            <StyledIFrame 
+                            <ImageFiller 
+                            imageSrc={undefined} linkTo={undefined}                        
+                            ></ImageFiller>
+                            {/* <StyledIFrame 
                             src="https://www.youtube.com/embed/FqIQ_nRudIc?si=UIEqUue5R5nt5Kvq" 
                             title="AW_sources_tutorial" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                            ></StyledIFrame>
+                            ></StyledIFrame> */}
                         </ContentVideo>
                     </ContentLeft>
                     <ContentRight>
@@ -191,7 +195,9 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                             Посмотрите краткое видео, в котором мы делаем обзор информационных панелей:
                         </ContentTextWithLine>
                         <ContentVideo>
-                            <ImageFiller></ImageFiller>
+                            <ImageFiller 
+                            imageSrc={undefined} linkTo={undefined}                        
+                            ></ImageFiller>
                             {/* <StyledIFrame 
                             src="https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK" 
                             title="AW_sources_tutorial" 

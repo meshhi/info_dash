@@ -187,8 +187,8 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                         </TextWithLine>
                     </ContentText>
                     <ContentVideo>
-                        <ImageFiller
-                        
+                        <ImageFiller 
+                        imageSrc={undefined} linkTo={undefined}                        
                         ></ImageFiller>
 
                         {/* <StyledIFrame 

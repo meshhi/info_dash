@@ -2,6 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
+import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -150,12 +151,15 @@ export const AboutModels: FC<PropsWithChildren> = () => {
                         </ContentTextWithLine>
                     </TextWrapper>
                     <ContentVideo>
-                        <StyledIFrame 
+                        <ImageFiller 
+                        imageSrc={undefined} linkTo={undefined}                        
+                        ></ImageFiller>
+                        {/* <StyledIFrame 
                         src="https://www.youtube.com/embed/UUNxPv0xNsw?si=hHIbuHyF0Wd7DCde" 
                         title="AW_sources_tutorial" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame>
+                        ></StyledIFrame> */}
                     </ContentVideo>
                 </ContentLeft>
                 <ContentRight>
@@ -165,12 +169,15 @@ export const AboutModels: FC<PropsWithChildren> = () => {
                         </ContentText>
                     </TextWrapper>
                     <ContentVideo>
-                        <StyledIFrame 
+                        <ImageFiller        
+                        imageSrc={undefined} linkTo={undefined}                        
+                        ></ImageFiller>
+                        {/* <StyledIFrame 
                         src="https://www.youtube.com/embed/x-bBELwwcxE?si=qr_NA18_CXSCBejZ" 
                         title="AW_sources_tutorial" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame>
+                        ></StyledIFrame> */}
                     </ContentVideo>
 
                 </ContentRight>
