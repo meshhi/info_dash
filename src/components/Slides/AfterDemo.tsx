@@ -8,7 +8,7 @@ import left_bot from '/src/assets/results/left_bot.png'
 import right_bot from '/src/assets/results/right_bot.png'
 import left_top from '/src/assets/results/left_top.png'
 import right_top from '/src/assets/results/right_top.png'
-import bg from '/src/assets/results/bg.png'
+import bg_mask_result from '/src/assets/results/bg_mask_result.png'
 
 
 const StyledContainer = styled(motion.section)`
@@ -150,7 +150,9 @@ const CardImgWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(${bg});
+    background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? bg_mask_result
+    : "bg_mask_result.png"});
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(243, 254, 255, 1);
@@ -211,7 +213,9 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Перейти в опрос</CardButton>,
-        image: left_top
+        image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+        ? left_top
+        : "left_top.png",
     },
     {
         text: () => {
@@ -223,7 +227,9 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Записаться на консультацию</CardButton>,
-        image: right_top
+        image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+        ? right_top
+        : "right_top.png",
     },
     {
         text: () => {
@@ -234,7 +240,9 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Перейти</CardButton>,
-        image: left_bot
+        image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+        ? left_bot
+        : "left_bot.png",
     },
     {
         text: () => {
@@ -245,7 +253,9 @@ const cardsContent = [
             )
         },
         btn: false,
-        image: right_bot
+        image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+        ? right_bot
+        : "right_bot.png",
     }
 ]
 
