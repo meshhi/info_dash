@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
-import back_demo_1 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_1.jpg'
+import back_demo_1 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_1.png'
 import back_demo_2 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_2.png'
 import back_demo_3 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_3.png'
 

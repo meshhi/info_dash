@@ -3,6 +3,14 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
 import { GreenButton } from "../UI/Buttons/Buttons";
+
+import left_bot from '/src/assets/results/left_bot.png'
+import right_bot from '/src/assets/results/right_bot.png'
+import left_top from '/src/assets/results/left_top.png'
+import right_top from '/src/assets/results/right_top.png'
+import bg from '/src/assets/results/bg.png'
+
+
 const StyledContainer = styled(motion.section)`
     width: 100%;
     height: 100%;
@@ -129,19 +137,32 @@ const CardContent = styled.div`
     }
 `
 
-const CardImg = styled.img`
+
+const CardImgWrapper = styled.div`
     min-width: 150px;
-    max-width: 300px;
+    max-width: 292px;
     min-height: 150px;
+    max-height: 258px;
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    background-color: grey;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${bg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(243, 254, 255, 1);
 
     @media (max-width: 1600px) and (max-height: 900px) {
-        height: 100%;;
+        height: 100%;
     }
+`
+
+const CardImg = styled.img`
+    width: 60%;
+    height: 50%;
 `
 const CardText = styled.p`
     font-size: 20px;
@@ -190,7 +211,7 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Перейти в опрос</CardButton>,
-        image: undefined
+        image: left_top
     },
     {
         text: () => {
@@ -202,7 +223,7 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Записаться на консультацию</CardButton>,
-        image: undefined
+        image: right_top
     },
     {
         text: () => {
@@ -213,7 +234,7 @@ const cardsContent = [
             )
         },
         btn: () => <CardButton>Перейти</CardButton>,
-        image: undefined
+        image: left_bot
     },
     {
         text: () => {
@@ -224,7 +245,7 @@ const cardsContent = [
             )
         },
         btn: false,
-        image: undefined
+        image: right_bot
     }
 ]
 
@@ -258,9 +279,11 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
                             </CardText>
                             {card.btn ? card.btn() : false}
                         </CardContent>
-                            <CardImg>
+                            <CardImgWrapper>
+                                <CardImg src={card.image}>
 
-                            </CardImg>
+                                </CardImg>
+                            </CardImgWrapper>
                     </Card>)
                 }
             </Cards>

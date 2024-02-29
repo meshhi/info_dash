@@ -5,6 +5,7 @@ import can_right from '/src/assets/can_right.png';
 import { motion } from "framer-motion";
 import top from "/src/assets/restrictions/top.svg"
 import bottom from "/src/assets/restrictions/bottom.svg"
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 const StyledContainer = styled.section`
     height: 100%;
@@ -271,7 +272,9 @@ export const Restrictions: FC<PropsWithChildren> = () => {
                         href="https://t.me/awcommunity"
                         target="_blank"
                         >
-                            t.me/AnalyticWorkspace
+                            <LinkWithTooltip>
+                                t.me/AnalyticWorkspace
+                            </LinkWithTooltip>
                         </StyledLink>
                     </RightBottomContent>
                 </RightContent>
