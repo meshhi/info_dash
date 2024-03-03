@@ -2,9 +2,10 @@ import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
-import back_demo_1 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_1.png'
-import back_demo_2 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_2.png'
-import back_demo_3 from '/home/meshi/Desktop/info_dash/src/assets/get_aw/back_demo_3.png'
+import back_demo_1 from '/src/assets/get_aw/back_demo_1.png'
+import back_demo_2 from '/src/assets/get_aw/back_demo_2.png'
+import back_demo_3 from '/src/assets/get_aw/back_demo_3.png'
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -92,8 +93,7 @@ const Card = styled.div`
     justify-content: flex-start;
     align-items: center;
     gap: 36px;
-    max-width: 478px;
-    overflow: scroll;
+    max-width: 500px;
 
     @media (max-width: 1272px) {
         flex-basis: 350px;
@@ -114,9 +114,9 @@ const Card = styled.div`
 const CardImg = styled.img`
     // min-width: 350px;
     height: 314px;
-    border-radius: 15px;
+    // border-radius: 15px;
     background-color: grey;
-    border: 1px solid #48D6E55C;
+    // border: 1px solid #48D6E55C;
     border-radius: 15px;
     background-color: #EDF3FA;
 
@@ -170,7 +170,11 @@ const cards = [
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? back_demo_3
         : "back_demo_3.png",
-        text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>"</p>
+        text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: 
+            <LinkWithTooltip>
+                <BoldLink href="https://t.me/awcommunity" target="_blank">t.me/awcommunity</BoldLink>
+            </LinkWithTooltip>
+            "</p>
     }
 ]
 

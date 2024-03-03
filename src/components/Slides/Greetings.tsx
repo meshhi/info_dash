@@ -4,9 +4,10 @@ import greetings_bg from '/src/assets/greetings_bg.png'
 import greetings_tableau_png from '/src/assets/greetings_tableau.png'
 import greetings_tableau_webp from '/src/assets/greetings_tableau.webp'
 import greetings_tableau_jpg from '/src/assets/greetings_tableau.jpg'
-import { RedButton } from "../UI/Buttons/Buttons";
+import { ButtonsBlock, GreenButton, RedButton } from "../UI/Buttons/Buttons";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 const StyledGreetings = styled.section`
     inset: 0;
@@ -153,11 +154,18 @@ export const Greetings: FC<PropsWithChildren> = () => {
                     За несколько шагов мы расскажем <br></br> вам о возможностях системы <br></br>и ключевых ресурсах.
                 </Paragraph>
 
-                <RedButton
-                    onClick={() => {
-                        navigate("/slides/2");
-                    }}
-                >Далее</RedButton>
+                <ButtonsBlock>
+                    <RedButton
+                        onClick={() => {
+                            navigate("/slides/2");
+                        }}
+                    >Далее</RedButton>
+                    <LinkWithTooltip>
+                        <GreenButton
+                        ><a href="https://aw-demo.ru/app/sources" target="_blank">Пропустить</a></GreenButton>
+                    </LinkWithTooltip>
+                </ButtonsBlock>
+
 
                 <LittleParagraph>
                     Навигационный дашборд появляется только 1 раз,<br></br> но всегда доступен в разделе <BoldLittleParagraph>«Информационные панели»</BoldLittleParagraph>

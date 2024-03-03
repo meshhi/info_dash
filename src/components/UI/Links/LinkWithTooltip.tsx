@@ -3,6 +3,9 @@ import styled from 'styled-components'
 
 const Link = styled.div`
   position: relative;
+  cursor: pointer;
+  display: inline-block;
+  padding-inline: 4px;
 
   &::before {
 
@@ -10,13 +13,20 @@ const Link = styled.div`
 
   &:hover::before {
     display: flex;
-    content: "нажитн";
-    position: absolute;
-    top: 0;
+    content: "Нажмите правой кнопкой мыши -> Открыть ссылку в новой вкладке";
+    position: absolute; 
+    top: -40px;
     min-width: 20px;
     min-height: 20px;
-    background-color: red;
+    background-color: #EDF3FA;
     margin: 0 auto;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 3px;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    border: 1px solid grey;
   }
 `
 

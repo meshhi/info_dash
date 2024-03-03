@@ -10,6 +10,11 @@ box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 transition: all 0.2s ease-in-out;
 `
 
+export const ButtonsBlock = styled.div`
+    display: flex;
+    gap: 1rem;
+`
+
 export const RedButton = styled(StyledButton)`
     background-color: #E8698A;
 

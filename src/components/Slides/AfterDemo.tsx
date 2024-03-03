@@ -9,6 +9,7 @@ import right_bot from '/src/assets/results/right_bot.png'
 import left_top from '/src/assets/results/left_top.png'
 import right_top from '/src/assets/results/right_top.png'
 import bg_mask_result from '/src/assets/results/bg_mask_result.png'
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 
 const StyledContainer = styled(motion.section)`
@@ -212,7 +213,9 @@ const cardsContent = [
                 </TextContent>
             )
         },
-        btn: () => <CardButton>Перейти в опрос</CardButton>,
+        btn: () => <LinkWithTooltip>
+            <CardButton><a target="_blank" href="https://aw-demo.ru/app/sources">Перейти в опрос</a></CardButton>
+        </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? left_top
         : "left_top.png",
@@ -226,7 +229,10 @@ const cardsContent = [
                 </TextContent>
             )
         },
-        btn: () => <CardButton>Записаться на консультацию</CardButton>,
+        btn: () => 
+        <LinkWithTooltip>
+            <CardButton><a target="_blank" href="https://aw-demo.ru/app/sources">Записаться на консультацию</a></CardButton>
+        </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? right_top
         : "right_top.png",
@@ -235,11 +241,13 @@ const cardsContent = [
         text: () => {
             return(
                 <TextContent>
-                    Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – <BoldLink href="https://t.me/awcommunity">t.me/AnalyticWorkspace</BoldLink> 
+                    Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – <LinkWithTooltip><BoldLink href="https://t.me/awcommunity" target="_blank">t.me/AnalyticWorkspace</BoldLink></LinkWithTooltip>
                 </TextContent>
             )
         },
-        btn: () => <CardButton>Перейти</CardButton>,
+        btn: () => <LinkWithTooltip>
+                    <CardButton><a target="_blank" href="https://t.me/awcommunity">Перейти</a></CardButton>
+         </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? left_bot
         : "left_bot.png",

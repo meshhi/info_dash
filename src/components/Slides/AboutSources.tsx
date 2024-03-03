@@ -53,43 +53,42 @@ const ContentText = styled.div`
 const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
-    min-width: 500px;
-    min-height: 300px;
+    // min-width: 500px;
+    // min-height: 300px;
     position: relative;
-    border-radius: 15px;
+    // border-radius: 15px;
     overflow: hidden;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 
-    @media (max-width: 1300px) and (max-height: 750px) {
-        width: 100%;
-        height: 150px;
-    }
+    // @media (max-width: 1300px) and (max-height: 750px) {
+    //     width: 100%;
+    //     height: 150px;
+    // }
 
-    @media (max-width: 1300px) and (max-height: 900px) {
-        width: 500px;
-        height: 300px;
-    }
+    // @media (max-width: 1300px) and (max-height: 900px) {
+    //     width: 500px;
+    //     height: 300px;
+    // }
 
-    @media (max-width: 1600px) and (max-height: 900px) {
-        width: 700px;
-        height: 400px;
-    }
+    // @media (max-width: 1600px) and (max-height: 900px) {
+    //     width: 700px;
+    //     height: 400px;
+    // }
 
-    @media (min-width: 1601px) {
-        min-width: 50%;
-        min-height: 400px;
-    }
+    // @media (min-width: 1601px) {
+    //     min-width: 50%;
+    //     min-height: 400px;
+    // }
 
 
-    @media (max-width: 1260px) {
-        width: 50%;
-    }
+    // @media (max-width: 1260px) {
+    //     width: 50%;
+    // }
 
-    @media (max-height: 780px) {
-        height: 80%;
-    }
+    // @media (max-height: 780px) {
+    //     height: 80%;
+    // }
 `
 
 const StyledIFrame = styled.iframe`
@@ -188,7 +187,7 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                     </ContentText>
                     <ContentVideo>
                         <ImageFiller 
-                        imageSrc={undefined} linkTo={undefined}                        
+                        imageSrc={undefined} linkTo={"https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD"}                        
                         ></ImageFiller>
 
                         {/* <StyledIFrame 

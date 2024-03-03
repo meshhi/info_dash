@@ -174,7 +174,7 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                         </ContentTextWithLine>
                         <ContentVideo>
                             <ImageFiller 
-                            imageSrc={undefined} linkTo={undefined}                        
+                            imageSrc={undefined} linkTo={"https://www.youtube.com/embed/FqIQ_nRudIc?si=UIEqUue5R5nt5Kvq"}                        
                             ></ImageFiller>
                             {/* <StyledIFrame 
                             src="https://www.youtube.com/embed/FqIQ_nRudIc?si=UIEqUue5R5nt5Kvq" 
@@ -196,7 +196,7 @@ export const AboutWidgets: FC<PropsWithChildren> = () => {
                         </ContentTextWithLine>
                         <ContentVideo>
                             <ImageFiller 
-                            imageSrc={undefined} linkTo={undefined}                        
+                            imageSrc={undefined} linkTo={"https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK"}                        
                             ></ImageFiller>
                             {/* <StyledIFrame 
                             src="https://www.youtube.com/embed/ST1rg65Xpio?si=tsUdQPXHnL3U2HEK" 

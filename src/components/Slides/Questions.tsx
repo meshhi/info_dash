@@ -7,6 +7,7 @@ import questions_chat from "/src/assets/questions/questions_chat.png"
 import questions_doc from "/src/assets/questions/questions_doc.png"
 import questions_stepic from "/src/assets/questions/questions_stepic.png"
 import questions_tg from "/src/assets/questions/questions_tg.png"
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 const StyledContainer = styled(motion.section)`
     width: 100%;
@@ -168,7 +169,9 @@ export const Questions: FC<PropsWithChildren> = () => {
                     <br></br>
                     <br></br>
                     <AdaptiveText>
-                        <BoldLink href="https://t.me/awcommunity">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
+                        <LinkWithTooltip>
+                            <BoldLink href="https://t.me/awcommunity" target="_blank">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
+                        </LinkWithTooltip>
                     </AdaptiveText>
             </TextContent>
         },
@@ -181,7 +184,9 @@ export const Questions: FC<PropsWithChildren> = () => {
                 У системы есть документация с примерами <br></br> и картинками – если будут вопросы “как это работает”, <br></br> то в ней точно есть ответы
                     <br></br>
                     <br></br>
-                <BoldLink href="https://webhelp.analyticworkspace.ru/">Документация</BoldLink>
+                <LinkWithTooltip>
+                    <BoldLink href="https://webhelp.analyticworkspace.ru/" target="_blank">Документация</BoldLink>
+                </LinkWithTooltip>
             </TextContent>
         },
         {
@@ -190,8 +195,11 @@ export const Questions: FC<PropsWithChildren> = () => {
             : "questions_stepic.png",
             text: () => 
             <TextContent>
-                У нас есть бесплатный курс на Stepik – <BoldLink href="https://webhelp.analyticworkspace.ru/">"BI-аналитик"</BoldLink><br></br>Возможно, вы с него и пришли, чтобы практику делать.<br></br> Если нет – то скорее запишитесь, там мы учим навыкам<br></br> работы BI-аналитика. 
-                
+                У нас есть бесплатный курс на Stepik – 
+                <LinkWithTooltip>
+                    <BoldLink href="https://stepik.org/course/173638/promo" target="_blank">"BI-аналитик"</BoldLink>
+                </LinkWithTooltip>
+                <br></br>Возможно, вы с него и пришли, чтобы практику делать.<br></br> Если нет – то скорее запишитесь, там мы учим навыкам<br></br> работы BI-аналитика.
             </TextContent>
         },
         {
@@ -200,8 +208,11 @@ export const Questions: FC<PropsWithChildren> = () => {
             : "questions_chat.png",
             text: () => 
             <TextContent>
-                У нас есть <BoldLink href="https://webhelp.analyticworkspace.ru/">форум</BoldLink> с описанием конкретных примеров,<br></br> там же вы можете оставить пожелания по развитию <br></br> функциональности системы – мы их ценим и стараемся <br></br> учитывать в будущих релизах.
-           
+                У нас есть 
+                <LinkWithTooltip>
+                    <BoldLink href="https://community.analyticworkspace.ru/categories" target="_blank">форум </BoldLink>
+                </LinkWithTooltip>
+                 с описанием конкретных примеров,<br></br> там же вы можете оставить пожелания по развитию <br></br> функциональности системы – мы их ценим и стараемся <br></br> учитывать в будущих релизах.
             </TextContent>
         },
     ]
@@ -236,7 +247,11 @@ export const Questions: FC<PropsWithChildren> = () => {
                     }
                 </Grid>
                 <Comment>
-                А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – <BoldLink href="https://t.me/awbi_ru">Data Driven культура</BoldLink>. Подписывайтесь.
+                А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – 
+                <LinkWithTooltip>
+                    <BoldLink href="https://t.me/awbi_ru" target="_blank">Data Driven культура</BoldLink>
+                </LinkWithTooltip>
+                . Подписывайтесь.
                 </Comment>
         </StyledContainer>
         )
