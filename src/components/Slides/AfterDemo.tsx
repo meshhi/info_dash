@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
+import bg_about_models from "/src/assets/about_models/bg_about_models.png"
 import { GreenButton } from "../UI/Buttons/Buttons";
 
 import left_bot from '/src/assets/results/left_bot.png'
@@ -20,7 +20,7 @@ const StyledContainer = styled(motion.section)`
     background-color: #EDF3FA;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? bg_about_models
-        : "bg_about_models.svg"});
+        : "bg_about_models.png"});
     background-size: cover;
     background-repeat: no-repeat;
     color: black;

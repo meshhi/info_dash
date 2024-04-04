@@ -1,10 +1,10 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import bg_about_models from "/src/assets/about_models/bg_about_models.svg"
+import bg_about_models from "/src/assets/about_models/bg_about_models.png"
 import back_demo_1 from '/src/assets/get_aw/back_demo_1.png'
 import back_demo_2 from '/src/assets/get_aw/back_demo_2.png'
-import back_demo_3 from '/src/assets/get_aw/back_demo_3.png'
+import back_demo_3 from '/src/assets/get_aw/back_demo_3_upd.png'
 import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
 
 const StyledContainer = styled(motion.section)`
@@ -15,7 +15,7 @@ const StyledContainer = styled(motion.section)`
     background-color: #EDF3FA;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? bg_about_models
-        : "bg_about_models.svg"});
+        : "bg_about_models.png"});
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
@@ -153,7 +153,7 @@ const cards = [
         id: 1,
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? back_demo_1
-        : "back_demo_1.jpg",
+        : "back_demo_1.png",
         text: () => <p>"Вы можете перейти к демо-версии через личный кабинет на сайте:"</p>
     },
     {
@@ -167,7 +167,7 @@ const cards = [
         id: 3,
         img: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? back_demo_3
-        : "back_demo_3.png",
+        : "back_demo_3_upd.png",
         text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: 
             <LinkWithTooltip>
                 <BoldLink href="https://t.me/awcommunity" target="_blank">t.me/awcommunity</BoldLink>

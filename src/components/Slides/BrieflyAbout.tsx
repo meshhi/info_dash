@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import bg_briefly from "/src/assets/briefly_about/bg_briefly.png";
 import aw_briefly from "/src/assets/briefly_about/aw_briefly.png";
-import arrow_top_briefly from "/src/assets/briefly_about/arrow_top_briefly.svg";
-import arrow_top_center_briefly from "/src/assets/briefly_about/arrow_top_center_briefly.svg";
-import arrow_bottom_center_briefly from "/src/assets/briefly_about/arrow_bottom_center_briefly.svg";
-import arrow_bottom_briefly from "/src/assets/briefly_about/arrow_bottom_briefly.svg";
+import arrow_top_briefly from "/src/assets/briefly_about/arrow_top_briefly.png";
+import arrow_top_center_briefly from "/src/assets/briefly_about/arrow_top_center_briefly.png";
+import arrow_bottom_center_briefly from "/src/assets/briefly_about/arrow_bottom_center_briefly.png";
+import arrow_bottom_briefly from "/src/assets/briefly_about/arrow_bottom_briefly.png";
 import LeaderLine from "leader-line-new";
 import { useLocation } from "react-router-dom";
 

@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import bg_about_sources from "/src/assets/about_sources/bg_about_sources.svg"
-import arrow_right_sources from "/src/assets/about_sources/arrow_right_sources.svg"
+import bg_about_sources from "/src/assets/about_sources/bg_about_sources.png"
+import arrow_right_sources from "/src/assets/about_sources/arrow_right_sources.png"
 import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
 // const StyledContainer = styled.section`
@@ -14,7 +14,7 @@ const StyledContainer = styled(motion.section)`
     background-color: #EDF3FA;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? bg_about_sources
-        : "bg_about_sources.svg"});
+        : "bg_about_sources.png"});
     background-size: cover;
     background-repeat: no-repeat;
     color: black;
@@ -55,7 +55,7 @@ const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
     // min-width: 500px;
-    // min-height: 300px;
+    height: 400px;
     position: relative;
     // border-radius: 15px;
     overflow: hidden;
@@ -181,7 +181,7 @@ export const AboutSources: FC<PropsWithChildren> = () => {
                             Посмотрите краткий обзор раздела Модели:
                             <Line src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
                                 ? arrow_right_sources
-                                : "arrow_right_sources.svg"
+                                : "arrow_right_sources.png"
                             }
                             ></Line>
                         </TextWithLine>
