@@ -5,6 +5,7 @@ import bg_about_sources from "/src/assets/about_sources/bg_about_sources.svg"
 import arrow_right_sources from "/src/assets/about_sources/arrow_right_sources.svg"
 import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
+// const StyledContainer = styled.section`
 const StyledContainer = styled(motion.section)`
     width: 100%;
     height: 100%;

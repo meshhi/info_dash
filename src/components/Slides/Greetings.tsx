@@ -155,15 +155,15 @@ export const Greetings: FC<PropsWithChildren> = () => {
                 </Paragraph>
 
                 <ButtonsBlock>
+                    <LinkWithTooltip>
+                        <GreenButton
+                        ><a href="https://aw-demo.ru/app/sources" target="_blank">Пропустить</a></GreenButton>
+                    </LinkWithTooltip>
                     <RedButton
                         onClick={() => {
                             navigate("/slides/2");
                         }}
                     >Далее</RedButton>
-                    <LinkWithTooltip>
-                        <GreenButton
-                        ><a href="https://aw-demo.ru/app/sources" target="_blank">Пропустить</a></GreenButton>
-                    </LinkWithTooltip>
                 </ButtonsBlock>
 
 

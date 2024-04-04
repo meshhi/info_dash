@@ -114,10 +114,8 @@ const Card = styled.div`
 const CardImg = styled.img`
     // min-width: 350px;
     height: 314px;
-    // border-radius: 15px;
     background-color: grey;
     // border: 1px solid #48D6E55C;
-    border-radius: 15px;
     background-color: #EDF3FA;
 
     @media (max-width: 1600px) and (max-height: 900px) {

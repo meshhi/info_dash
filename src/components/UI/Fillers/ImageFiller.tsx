@@ -45,7 +45,9 @@ export const ImageFiller = ({imageSrc, linkTo}) => {
                     </a>
                 </LinkWithTooltip>
             </PlayWrapper>
-            <FillerVideo src={imageSrc ? imageSrc : video_filler_2}>
+            <FillerVideo src={imageSrc ? imageSrc : ((!process.env.NODE_ENV || process.env.NODE_ENV === 'development')
+            ? video_filler_2
+            : "video_filler_2.png")}>
             </FillerVideo>
         </Card>
     )

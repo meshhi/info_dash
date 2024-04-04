@@ -231,7 +231,7 @@ const cardsContent = [
         },
         btn: () => 
         <LinkWithTooltip>
-            <CardButton><a target="_blank" href="https://aw-demo.ru/app/sources">Записаться на консультацию</a></CardButton>
+            <CardButton><a target="_blank" href="https://analyticworkspace.ru/">Записаться на консультацию</a></CardButton>
         </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
         ? right_top
