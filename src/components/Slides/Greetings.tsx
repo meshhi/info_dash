@@ -1,8 +1,6 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import styled from "styled-components";
 import greetings_bg from '/src/assets/greetings_bg.png'
-import greetings_tableau_png from '/src/assets/greetings_tableau.png'
-import greetings_tableau_webp from '/src/assets/greetings_tableau.webp'
 import greetings_tableau_jpg from '/src/assets/greetings_tableau.jpg'
 import { ButtonsBlock, GreenButton, RedButton } from "../UI/Buttons/Buttons";
 import { useNavigate } from "react-router-dom";
@@ -13,8 +11,8 @@ const StyledGreetings = styled.section`
     inset: 0;
     position: absolute;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? greetings_bg
-    : "greetings_bg.png"});
+        ? greetings_bg
+        : "greetings_bg.png"});
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 2;
@@ -22,10 +20,6 @@ const StyledGreetings = styled.section`
     border: 2px solid #48D6E5;
     border-radius: 15px;
     overflow: hidden;
-
-    @media (max-width: 1600px) and (max-height: 800px) {
-        // min-height: 800px;
-    }
 `
 
 const Tableau = styled(motion.img)`
@@ -38,7 +32,6 @@ const Tableau = styled(motion.img)`
     @media (min-width: 1600px) {
         width: 1200px;
         height: 100%;
-        // margin-top: -100px;
     }
 
     @media (min-width: 1100px) {
@@ -67,10 +60,6 @@ const Header = styled.h1`
         line-height: normal;
         margin-bottom: 31px;
     }
-
-    // @media (max-width: 1600px) and (max-height: 800px) {
-    //     line-height: normal;
-    // }
 `
 
 const Paragraph = styled.p`
@@ -113,7 +102,6 @@ const BoldLittleParagraph = styled.span`
 
 export const Greetings: FC<PropsWithChildren> = () => {
     const navigate = useNavigate();
-
     const [size, setSize] = useState<string>();
     useEffect(() => {
         const timer = setInterval(() => {
@@ -124,7 +112,6 @@ export const Greetings: FC<PropsWithChildren> = () => {
 
         return () => clearInterval(timer);
     }, [])
-
     return (
         <StyledGreetings>
             <TextContent
@@ -150,11 +137,9 @@ export const Greetings: FC<PropsWithChildren> = () => {
                 <Paragraph style={{ "marginBottom": "20px" }}>
                     Это навигационный дашборд, который <br></br>тоже сделан на AW BI.
                 </Paragraph>
-
                 <Paragraph style={{ "marginBottom": "50px" }}>
                     За несколько шагов мы расскажем <br></br> вам о возможностях системы <br></br>и ключевых ресурсах.
                 </Paragraph>
-
                 <ButtonsBlock>
                     <LinkWithTooltip>
                         <GreenButton
@@ -166,31 +151,30 @@ export const Greetings: FC<PropsWithChildren> = () => {
                         }}
                     >Далее</RedButton>
                 </ButtonsBlock>
-
-
                 <LittleParagraph>
                     Навигационный дашборд появляется только 1 раз,<br></br> но всегда доступен в разделе <BoldLittleParagraph>«Информационные панели»</BoldLittleParagraph>
                 </LittleParagraph>
             </TextContent>
-            <Tableau 
-            src={"greetings_tableau.png"}
-            variants={{
-                initial: {
-                    opacity: 0,
-                    y: "100px",
-                },
-                final: {
-                    opacity: 1,
-                    y: "0px",
-                    transition: {
-                        duration: 0.5,
+            <Tableau
+                src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                    ? greetings_tableau_jpg
+                    : "greetings_tableau.jpg"}
+                variants={{
+                    initial: {
+                        opacity: 0,
+                        y: "100px",
                     },
-                }
-            }}
-            initial="initial"
-            animate="final"
+                    final: {
+                        opacity: 1,
+                        y: "0px",
+                        transition: {
+                            duration: 0.5,
+                        },
+                    }
+                }}
+                initial="initial"
+                animate="final"
             >
-
             </Tableau>
         </StyledGreetings>
     )
