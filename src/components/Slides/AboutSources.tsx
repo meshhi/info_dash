@@ -5,7 +5,6 @@ import bg_about_sources from "/src/assets/about_sources/bg_about_sources.png"
 import arrow_right_sources from "/src/assets/about_sources/arrow_right_sources.png"
 import { ImageFiller } from "../UI/Fillers/ImageFiller";
 
-// const StyledContainer = styled.section`
 const StyledContainer = styled(motion.section)`
     width: 100%;
     height: 100%;
@@ -54,42 +53,11 @@ const ContentText = styled.div`
 const ContentVideo = styled.div`
     display: flex;
     flex-direction: column;
-    // min-width: 500px;
     height: 400px;
     position: relative;
-    // border-radius: 15px;
     overflow: hidden;
     justify-content: center;
     align-items: center;
-
-    // @media (max-width: 1300px) and (max-height: 750px) {
-    //     width: 100%;
-    //     height: 150px;
-    // }
-
-    // @media (max-width: 1300px) and (max-height: 900px) {
-    //     width: 500px;
-    //     height: 300px;
-    // }
-
-    // @media (max-width: 1600px) and (max-height: 900px) {
-    //     width: 700px;
-    //     height: 400px;
-    // }
-
-    // @media (min-width: 1601px) {
-    //     min-width: 50%;
-    //     min-height: 400px;
-    // }
-
-
-    // @media (max-width: 1260px) {
-    //     width: 50%;
-    // }
-
-    // @media (max-height: 780px) {
-    //     height: 80%;
-    // }
 `
 
 const StyledIFrame = styled.iframe`
@@ -166,39 +134,32 @@ export const AboutSources: FC<PropsWithChildren> = () => {
             initial="initial"
             animate="final"
         >
-                <Header>
-                    Что делать в разделах системы
-                </Header>
-                <Content>
-                    <ContentText>
-                        <TextHeader>
-                            Источники данных
-                        </TextHeader>
-                        <Text>
-                            – подключаете источники данных.<br></br> Если у вас нет готовых, то мы сделали<br></br>подборку нескольких датасетов.
-                        </Text>
-                        <TextWithLine>
-                            Посмотрите краткий обзор раздела Модели:
-                            <Line src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                                ? arrow_right_sources
-                                : "arrow_right_sources.png"
-                            }
-                            ></Line>
-                        </TextWithLine>
-                    </ContentText>
-                    <ContentVideo>
-                        <ImageFiller 
-                        imageSrc={undefined} linkTo={"https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD"}                        
-                        ></ImageFiller>
-
-                        {/* <StyledIFrame 
-                        src="https://www.youtube.com/embed/t985lZo0Ae8?si=5A3mZ13hAcfkElQD" 
-                        title="AW_sources_tutorial" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen;" 
-                        ></StyledIFrame> */}
-                    </ContentVideo>
-                </Content>
+            <Header>
+                Что делать в разделах системы
+            </Header>
+            <Content>
+                <ContentText>
+                    <TextHeader>
+                        Источники данных
+                    </TextHeader>
+                    <Text>
+                        – подключаете источники данных.<br></br> Если у вас нет готовых, то мы сделали<br></br>подборку нескольких датасетов.
+                    </Text>
+                    <TextWithLine>
+                        Посмотрите краткий обзор раздела "Источники данных":
+                        <Line src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+                            ? arrow_right_sources
+                            : "arrow_right_sources.png"
+                        }
+                        ></Line>
+                    </TextWithLine>
+                </ContentText>
+                <ContentVideo>
+                    <ImageFiller
+                        imageSrc={undefined} linkTo={"https://vk.com/video-226835413_456239089"}
+                    ></ImageFiller>
+                </ContentVideo>
+            </Content>
         </StyledContainer>
     )
 }

@@ -2,6 +2,12 @@ import { FC, PropsWithChildren, useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { RedButton, GreenButton } from "../UI/Buttons/Buttons";
+import { LinkWithTooltip } from "../UI/Links/LinkWithTooltip";
+
+
+import greetings_bg from '/src/assets/greetings_bg.png'
+import greetings_tableau_png from '/src/assets/greetings_tableau.png'
+
 
 const StyledBaseContainer = styled.main`
     width: 100%;
@@ -33,30 +39,18 @@ const CurrentPage = styled.div`
     color: #909090;
 `
 
-export const BaseContainer : FC<PropsWithChildren> = () => {
+export const BaseContainer: FC<PropsWithChildren> = () => {
     const location = useLocation()
     const navigate = useNavigate();
 
     const [page, setPage] = useState<number>()
     const [maxPage, setMaxPage] = useState<number>(10)
 
-    
     useEffect(() => {
         setPage(Number(location.pathname.slice("/slides/".length)));
     }, [location])
-    
-    
-    const [size, setSize] = useState<string>();
-    // useEffect(() => {
-    //     const timer = setInterval(() => {
-    //         let sizeString = "width: " + window.innerWidth + " height: " + window.innerHeight;
-    //         setSize(sizeString);
-    //         console.log("Current window size: " + sizeString);
-    //     }, 1000);
-    //     return () => clearInterval(timer);
-    // }, [])
 
-    return(
+    return (
         <StyledBaseContainer>
             <ViewContainer>
                 <Outlet></Outlet>
@@ -64,23 +58,32 @@ export const BaseContainer : FC<PropsWithChildren> = () => {
             <Row>
                 <CurrentPage>{page}/{maxPage}</CurrentPage>
                 <GreenButton
-                onClick={() => {
-                    if (page == 2) {
-                        navigate("/");
-                    } else {
-                        navigate(`/slides/${page - 1}`);
-                    }
-                }}
+                    onClick={() => {
+                        if (page == 2) {
+                            navigate("/");
+                        } else {
+                            navigate(`/slides/${page - 1}`);
+                        }
+                    }}
                 >Назад</GreenButton>
                 {
                     page == maxPage
-                    ? false
-                    :                 
-                    <RedButton
-                        onClick={() => {
-                            navigate(`/slides/${page + 1}`);
-                        }}
-                    >Далее</RedButton>
+                        ?
+                        <LinkWithTooltip marginLink={0}>
+                            <RedButton
+                            ><a href="https://aw-demo.ru/app/sources" target="_blank" onClick={(e) => {
+                                e.preventDefault();
+                                // @ts-ignore
+                                redirect("https://aw-demo.ru/app/sources", true);
+                            }
+                            }>Перейти в систему</a></RedButton>
+                        </LinkWithTooltip>
+                        :
+                        <RedButton
+                            onClick={() => {
+                                navigate(`/slides/${page + 1}`);
+                            }}
+                        >Далее</RedButton>
                 }
             </Row>
         </StyledBaseContainer>)

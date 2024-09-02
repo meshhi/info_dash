@@ -170,7 +170,12 @@ export const Questions: FC<PropsWithChildren> = () => {
                     <br></br>
                     <AdaptiveText>
                         <LinkWithTooltip>
-                            <BoldLink href="https://t.me/awcommunity" target="_blank">t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
+                            <BoldLink href="https://t.me/awcommunity" target="_blank" onClick={(e) => {
+                                e.preventDefault();
+                                // @ts-ignore
+                                redirect("https://t.me/awcommunity", true);
+                            }
+                            }>t.me/awcommunity</BoldLink>– присоединяйтесь. Спрашивайте <br></br> и отвечайте!
                         </LinkWithTooltip>
                     </AdaptiveText>
             </TextContent>
@@ -185,7 +190,12 @@ export const Questions: FC<PropsWithChildren> = () => {
                     <br></br>
                     <br></br>
                 <LinkWithTooltip>
-                    <BoldLink href="https://webhelp.analyticworkspace.ru/" target="_blank">Документация</BoldLink>
+                        <BoldLink href="https://webhelp.analyticworkspace.ru/" target="_blank" onClick={(e) => {
+                            e.preventDefault();
+                            // @ts-ignore
+                            redirect("https://webhelp.analyticworkspace.ru/", true);
+                        }
+                        }>Документация</BoldLink>
                 </LinkWithTooltip>
             </TextContent>
         },
@@ -197,7 +207,12 @@ export const Questions: FC<PropsWithChildren> = () => {
             <TextContent>
                 У нас есть бесплатный курс на Stepik – 
                 <LinkWithTooltip>
-                    <BoldLink href="https://stepik.org/course/173638/promo" target="_blank">"BI-аналитик"</BoldLink>
+                        <BoldLink href="https://stepik.org/course/173638/promo" target="_blank" onClick={(e) => {
+                            e.preventDefault();
+                            // @ts-ignore
+                            redirect("https://stepik.org/course/173638/promo", true);
+                        }
+                        }>"BI-аналитик"</BoldLink>
                 </LinkWithTooltip>
                 <br></br>Возможно, вы с него и пришли, чтобы практику делать.<br></br> Если нет – то скорее запишитесь, там мы учим навыкам<br></br> работы BI-аналитика.
             </TextContent>
@@ -210,7 +225,12 @@ export const Questions: FC<PropsWithChildren> = () => {
             <TextContent>
                 У нас есть 
                 <LinkWithTooltip>
-                    <BoldLink href="https://community.analyticworkspace.ru/categories" target="_blank">форум </BoldLink>
+                        <BoldLink href="https://community.analyticworkspace.ru/categories" target="_blank" onClick={(e) => {
+                            e.preventDefault();
+                            // @ts-ignore
+                            redirect("https://community.analyticworkspace.ru/categories", true);
+                        }
+                        }>форум </BoldLink>
                 </LinkWithTooltip>
                  с описанием конкретных примеров,<br></br> там же вы можете оставить пожелания по развитию <br></br> функциональности системы – мы их ценим и стараемся <br></br> учитывать в будущих релизах.
             </TextContent>
@@ -249,7 +269,12 @@ export const Questions: FC<PropsWithChildren> = () => {
                 <Comment>
                 А ещё есть телеграм-канал для развития насмотренности и навыков в Data Driven – 
                 <LinkWithTooltip>
-                    <BoldLink href="https://t.me/awbi_ru" target="_blank">Data Driven культура</BoldLink>
+                    <BoldLink href="https://t.me/awbi_ru" target="_blank" onClick={(e) => {
+                        e.preventDefault();
+                        // @ts-ignore
+                        redirect("https://t.me/awbi_ru", true);
+                    }
+                    }>Data Driven культура</BoldLink>
                 </LinkWithTooltip>
                 . Подписывайтесь.
                 </Comment>

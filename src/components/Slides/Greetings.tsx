@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
 import styled from "styled-components";
 import greetings_bg from '/src/assets/greetings_bg.png'
-import greetings_tableau_jpg from '/src/assets/greetings_tableau.jpg'
+import greetings_tableau_png from '/src/assets/greetings_tableau.png'
 import { ButtonsBlock, GreenButton, RedButton } from "../UI/Buttons/Buttons";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -143,7 +143,15 @@ export const Greetings: FC<PropsWithChildren> = () => {
                 <ButtonsBlock>
                     <LinkWithTooltip>
                         <GreenButton
-                        ><a href="https://aw-demo.ru/app/sources" target="_blank">Пропустить</a></GreenButton>
+                        ><a
+                            onClick={(e) => {
+                                    e.preventDefault();
+                                    // @ts-ignore
+                                    redirect("https://aw-demo.ru/app/sources", true);
+                                }
+                            }
+                            href="https://aw-demo.ru/app/sources"
+                            target="_blank">Пропустить</a></GreenButton>
                     </LinkWithTooltip>
                     <RedButton
                         onClick={() => {
@@ -157,8 +165,8 @@ export const Greetings: FC<PropsWithChildren> = () => {
             </TextContent>
             <Tableau
                 src={!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-                    ? greetings_tableau_jpg
-                    : "greetings_tableau.jpg"}
+                    ? greetings_tableau_png
+                    : "greetings_tableau.png"}
                 variants={{
                     initial: {
                         opacity: 0,

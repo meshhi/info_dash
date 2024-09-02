@@ -152,7 +152,7 @@ export const AboutModels: FC<PropsWithChildren> = () => {
                     </TextWrapper>
                     <ContentVideo>
                         <ImageFiller 
-                        imageSrc={undefined} linkTo={"https://www.youtube.com/embed/UUNxPv0xNsw?si=hHIbuHyF0Wd7DCde"}                        
+                            imageSrc={undefined} linkTo={"https://vk.com/video-226835413_456239086"}                        
                         ></ImageFiller>
                         {/* <StyledIFrame 
                         src="https://www.youtube.com/embed/UUNxPv0xNsw?si=hHIbuHyF0Wd7DCde" 
@@ -170,7 +170,7 @@ export const AboutModels: FC<PropsWithChildren> = () => {
                     </TextWrapper>
                     <ContentVideo>
                         <ImageFiller        
-                        imageSrc={undefined} linkTo={"https://www.youtube.com/embed/x-bBELwwcxE?si=qr_NA18_CXSCBejZ"}                        
+                            imageSrc={undefined} linkTo={"https://vk.com/video-226835413_456239040"}                        
                         ></ImageFiller>
                         {/* <StyledIFrame 
                         src="https://www.youtube.com/embed/x-bBELwwcxE?si=qr_NA18_CXSCBejZ" 

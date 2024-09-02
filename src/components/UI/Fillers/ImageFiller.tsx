@@ -16,7 +16,7 @@ const Card = styled.div`
 
 const FillerVideo = styled.img`
     width: 100%;
-    height: 100%;
+    height: 100%;   
 `
 
 const PlayWrapper = styled.div`
@@ -33,13 +33,21 @@ const Play = styled.img`
 `
 
 
-export const ImageFiller = ({imageSrc, linkTo}) => {
+export const ImageFiller = ({ imageSrc, linkTo }) => {
+    const linkToUpd = linkTo ?? "https://aw-bi.ru/"
     return(
         <Card>
             <PlayWrapper>
                 <LinkWithTooltip>
-                    <a href={linkTo ? linkTo : "http://google.com"}
-                    target="_blank"
+                    <a
+                        href={linkToUpd}
+                        target="_blank"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            // @ts-ignore
+                            redirect(linkToUpd, true);
+                            }
+                        }
                     >
                         <Play src={play}></Play>
                     </a>

@@ -270,7 +270,13 @@ export const Restrictions: FC<PropsWithChildren> = () => {
                         <TextRightBottom>
                             Если вам нужна демо-версия <br></br> для работы на своих серверах – <br></br> напишите нам:
                         </TextRightBottom>
-                        <StyledLink 
+                    <StyledLink 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            // @ts-ignore
+                            redirect("https://t.me/awcommunity", true);
+                        }
+                        }
                         href="https://t.me/awcommunity"
                         target="_blank"
                         >

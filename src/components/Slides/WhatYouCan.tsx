@@ -1,6 +1,5 @@
 import { FC, PropsWithChildren } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 import can_left from '/src/assets/can_left.png';
 import can_right from '/src/assets/can_right.png';
 import { motion } from "framer-motion";

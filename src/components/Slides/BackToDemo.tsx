@@ -170,7 +170,12 @@ const cards = [
         : "back_demo_3_upd.png",
         text: () => <p>"Реквизиты доступа в личный кабинет вы создавали при регистрации в демо-версии. Если не получается или забыли пароль – напишите в нашу поддержку: 
             <LinkWithTooltip>
-                <BoldLink href="https://t.me/awcommunity" target="_blank">t.me/awcommunity</BoldLink>
+                <BoldLink href="https://t.me/awcommunity" target="_blank" onClick={(e) => {
+                    e.preventDefault();
+                    // @ts-ignore
+                    redirect("https://t.me/awcommunity", true);
+                }
+                }>t.me/awcommunity</BoldLink>
             </LinkWithTooltip>
             "</p>
     }

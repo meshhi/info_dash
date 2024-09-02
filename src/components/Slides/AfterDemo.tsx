@@ -44,7 +44,6 @@ const Header = styled.h1`
 const TextContent = styled.p`
     font-size: 20px;
     font-weight: 300;
-    // margin-bottom: 55px;
 
     @media (max-width: 1200px) {
         font-size: 12px;
@@ -152,8 +151,8 @@ const CardImgWrapper = styled.div`
     justify-content: center;
     align-items: center;
     background-image: url(${!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-    ? bg_mask_result
-    : "bg_mask_result.png"});
+        ? bg_mask_result
+        : "bg_mask_result.png"});
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgba(243, 254, 255, 1);
@@ -206,55 +205,75 @@ const BoldLink = styled.a`
 const cardsContent = [
     {
         text: () => {
-            return(
+            return (
                 <TextContent>
                     <AdaptiveText>Если вы просто хотели посмотреть на нашу BI – спасибо, что посмотрели❤️ </AdaptiveText>
-                    Будем рады, если вы оставите обратную связь в этом небольшом опросе: 
+                    Будем рады, если вы оставите обратную связь в этом небольшом опросе:
                 </TextContent>
             )
         },
         btn: () => <LinkWithTooltip>
-            <CardButton><a target="_blank" href="https://aw-demo.ru/app/sources">Перейти в опрос</a></CardButton>
+            <CardButton><a target="_blank" href="https://aw-demo.ru/app/sources" onClick={(e) => {
+                e.preventDefault();
+                // @ts-ignore
+                redirect("https://aw-demo.ru/app/sources", true);
+            }
+            }>Перейти в опрос</a></CardButton>
         </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? left_top
-        : "left_top.png",
+            ? left_top
+            : "left_top.png",
     },
     {
         text: () => {
-            return(
+            return (
                 <TextContent>
-                    Если вы выбираете систему для внедрения – давайте вместе обсудим вашу задачу. Возможно, у вас остались какие-то вопросы или сомнения. 
+                    Если вы выбираете систему для внедрения – давайте вместе обсудим вашу задачу. Возможно, у вас остались какие-то вопросы или сомнения.
                     <AdaptiveTextBottom>Просто запишитесь на консультацию здесь – </AdaptiveTextBottom>
                 </TextContent>
             )
         },
-        btn: () => 
-        <LinkWithTooltip>
-            <CardButton><a target="_blank" href="https://analyticworkspace.ru/">Записаться на консультацию</a></CardButton>
-        </LinkWithTooltip>,
+        btn: () =>
+            <LinkWithTooltip>
+                <CardButton><a target="_blank" href="https://analyticworkspace.ru/" onClick={(e) => {
+                    e.preventDefault();
+                    // @ts-ignore
+                    redirect("https://analyticworkspace.ru/", true);
+                }
+                }>Записаться на консультацию</a></CardButton>
+            </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? right_top
-        : "right_top.png",
+            ? right_top
+            : "right_top.png",
     },
     {
         text: () => {
-            return(
+            return (
                 <TextContent>
-                    Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – <LinkWithTooltip><BoldLink href="https://t.me/awcommunity" target="_blank">t.me/AnalyticWorkspace</BoldLink></LinkWithTooltip>
+                    Если вам не хватило времени, чтобы ознакомиться с системой, напишите нам, мы поможем – <LinkWithTooltip><BoldLink href="https://t.me/awcommunity" target="_blank" onClick={(e) => {
+                        e.preventDefault();
+                        // @ts-ignore
+                        redirect("https://t.me/awcommunity", true);
+                    }
+                    }>t.me/AnalyticWorkspace</BoldLink></LinkWithTooltip>
                 </TextContent>
             )
         },
         btn: () => <LinkWithTooltip>
-                    <CardButton><a target="_blank" href="https://t.me/awcommunity">Перейти</a></CardButton>
-         </LinkWithTooltip>,
+            <CardButton><a target="_blank" href="https://t.me/awcommunity" onClick={(e) => {
+                e.preventDefault();
+                // @ts-ignore
+                redirect("https://t.me/awcommunity", true);
+            }
+            }>Перейти</a></CardButton>
+        </LinkWithTooltip>,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? left_bot
-        : "left_bot.png",
+            ? left_bot
+            : "left_bot.png",
     },
     {
         text: () => {
-            return(
+            return (
                 <TextContent>
                     Ближе к окончанию срока действия демо-версии мы напомним вам на почту об опросе и возможности консультации 😉
                 </TextContent>
@@ -262,13 +281,13 @@ const cardsContent = [
         },
         btn: false,
         image: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
-        ? right_bot
-        : "right_bot.png",
+            ? right_bot
+            : "right_bot.png",
     }
 ]
 
 export const AfterDemo: FC<PropsWithChildren> = () => {
-    
+
     return (
         <StyledContainer
             variants={{
@@ -297,14 +316,14 @@ export const AfterDemo: FC<PropsWithChildren> = () => {
                             </CardText>
                             {card.btn ? card.btn() : false}
                         </CardContent>
-                            <CardImgWrapper>
-                                <CardImg src={card.image}>
+                        <CardImgWrapper>
+                            <CardImg src={card.image}>
 
-                                </CardImg>
-                            </CardImgWrapper>
+                            </CardImg>
+                        </CardImgWrapper>
                     </Card>)
                 }
             </Cards>
         </StyledContainer>
-        )
-    }
+    )
+}
